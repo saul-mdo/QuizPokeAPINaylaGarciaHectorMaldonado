@@ -21,6 +21,7 @@
     <None Remove="images\btniniciar.png" />
     <None Remove="images\btnsig.png" />
     <None Remove="images\fondo.jpg" />
+    <None Remove="images\pokebola.ico" />
     <None Remove="images\pokequiz.png" />
     <None Remove="images\portada.png" />
     <None Remove="images\pregunta.png" />
@@ -86,6 +87,12 @@
     <Content Include="images\pregunta2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\pokebola.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
