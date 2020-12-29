@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GalaSoft.MvvmLight.Command;
+using Newtonsoft.Json;
 using QuizPokemonWPF.Model;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Text;
+using System.Windows.Input;
 
 namespace QuizPokemonWPF.ViewModel
 {
@@ -15,11 +17,38 @@ namespace QuizPokemonWPF.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Pokemon> Pokemones { get; set; } = new ObservableCollection<Pokemon>();
+        public Pokemon Pokemon { get; set; } = new Pokemon();
+
+        void Lanzar(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private int myVar;
+
+        public int MyProperty
+        {
+            get { return myVar; }
+            set { myVar = value; }
+        }
+
 
         public PokemonViewModel()
         {
-            GetPokemon(7);
+            //GetPokemon(7);
+            InciarQuizCommand = new RelayCommand(IniciarQuiz);
+        }
+
+        public int IdPokemonRandom()
+        {
+            Random r = new Random();
+           int idRandom = r.Next(1, 117);
+            return idRandom;
+        }
+
+        private void IniciarQuiz()
+        {
+            GetPokemon(IdPokemonRandom());
+            // CAMBIAR MODAL A LA PRGUNTA 1
         }
 
         async void GetPokemon(int idPokemon)
@@ -28,9 +57,11 @@ namespace QuizPokemonWPF.ViewModel
             if (result.IsSuccessStatusCode)
             {
                 string datos = await result.Content.ReadAsStringAsync();
-                Pokemon pokemon = JsonConvert.DeserializeObject<Pokemon>(datos);
-                Pokemones.Add(pokemon);
+                Pokemon = JsonConvert.DeserializeObject<Pokemon>(datos);
+                Lanzar();
             }
         }
+
+        public ICommand InciarQuizCommand { get; set; }
     }
 }

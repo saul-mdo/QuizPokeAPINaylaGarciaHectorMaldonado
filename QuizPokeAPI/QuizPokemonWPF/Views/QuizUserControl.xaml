@@ -21,7 +21,8 @@
                     <ImageBrush ImageSource="/images/pregunta2.png"></ImageBrush>
                 </StackPanel.Background>
 
-                <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap"><Label FontWeight="Bold">PREGUNTA 1.</Label>
+                <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
+                    <Label FontWeight="Bold">PREGUNTA 1.</Label>
                     Cual es el nombre del pokemon que hace esto, el otro y el otro? ddddddddddddddddddddddddddddddddddddddddddddddddddd</TextBlock>
                 <UniformGrid Columns="4" Margin="40,25,30,40">
                     <UniformGrid.Resources>
