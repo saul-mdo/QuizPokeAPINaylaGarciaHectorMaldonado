@@ -11,11 +11,17 @@ using System.Windows.Input;
 
 namespace QuizPokemonWPF.ViewModel
 {
+    public enum Modal { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, puntajes, Inicio }
+
     public class PokemonViewModel: INotifyPropertyChanged
     {
         HttpClient client = new HttpClient() { BaseAddress = new Uri("https://pokeapi.co/") };
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<Pokemon> listaPokes { get; set; } = new ObservableCollection<Pokemon>();
+
+        public Modal ModalVisible { get; set; } = Modal.Inicio;
 
         public Pokemon Pokemon { get; set; } = new Pokemon();
 
@@ -23,7 +29,6 @@ namespace QuizPokemonWPF.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private int myVar;
 
         public int MyProperty
         {
@@ -34,21 +39,34 @@ namespace QuizPokemonWPF.ViewModel
 
         public PokemonViewModel()
         {
-            //GetPokemon(7);
-            InciarQuizCommand = new RelayCommand(IniciarQuiz);
+            //for (int i = 0; i <= 20; i++)
+            //{
+            //    var id = IdPokemonRandom();
+            //    GetPokemon(id);
+            //}
+            var id = IdPokemonRandom();
+            GetPokemon(id);
+            id = IdPokemonRandom();
+            GetPokemon(id);
+
+            // InciarQuizCommand = new RelayCommand(IniciarQuiz);
         }
 
         public int IdPokemonRandom()
         {
             Random r = new Random();
-           int idRandom = r.Next(1, 117);
+           int idRandom = r.Next(1, 1117);
             return idRandom;
         }
 
-        private void IniciarQuiz()
+        async void IniciarQuiz()
         {
-            GetPokemon(IdPokemonRandom());
+            var id = IdPokemonRandom();
+            GetPokemon(id);
             // CAMBIAR MODAL A LA PRGUNTA 1
+            ModalVisible = Modal.p1;
+            Lanzar();
+
         }
 
         async void GetPokemon(int idPokemon)
@@ -58,6 +76,7 @@ namespace QuizPokemonWPF.ViewModel
             {
                 string datos = await result.Content.ReadAsStringAsync();
                 Pokemon = JsonConvert.DeserializeObject<Pokemon>(datos);
+                listaPokes.Add(Pokemon);
                 Lanzar();
             }
         }

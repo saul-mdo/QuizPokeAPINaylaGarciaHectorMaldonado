@@ -8,16 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuizPokemonWPF
+namespace QuizPokemonWPF.Views
 {
     /// <summary>
-    /// Lógica de interacción para PuntajeView.xaml
+    /// Lógica de interacción para Pregunta2.xaml
     /// </summary>
-    public partial class PuntajeView : Window
+    public partial class Pregunta2 : UserControl
     {
-        public PuntajeView()
+        public Pregunta2()
         {
             InitializeComponent();
         }
