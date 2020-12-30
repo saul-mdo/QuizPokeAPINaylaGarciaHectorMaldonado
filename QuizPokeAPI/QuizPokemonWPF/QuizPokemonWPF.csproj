@@ -11,25 +11,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="images\1.png" />
-    <None Remove="images\10.png" />
-    <None Remove="images\11.png" />
-    <None Remove="images\2.png" />
-    <None Remove="images\3.png" />
-    <None Remove="images\4.png" />
-    <None Remove="images\5.png" />
-    <None Remove="images\6.png" />
-    <None Remove="images\7.png" />
-    <None Remove="images\8.png" />
-    <None Remove="images\9.png" />
-    <None Remove="images\btniniciar.png" />
-    <None Remove="images\btnsig.png" />
-    <None Remove="images\fondo.jpg" />
-    <None Remove="images\pokebola.ico" />
-    <None Remove="images\pokequiz.png" />
-    <None Remove="images\portada.png" />
-    <None Remove="images\pregunta.png" />
-    <None Remove="images\pregunta2.png" />
+    <None Remove="Images\1.png" />
+    <None Remove="Images\10.png" />
+    <None Remove="Images\11.png" />
+    <None Remove="Images\2.png" />
+    <None Remove="Images\3.png" />
+    <None Remove="Images\4.png" />
+    <None Remove="Images\5.png" />
+    <None Remove="Images\6.png" />
+    <None Remove="Images\7.png" />
+    <None Remove="Images\8.png" />
+    <None Remove="Images\9.png" />
+    <None Remove="Images\btniniciar.png" />
+    <None Remove="Images\btnsig.png" />
+    <None Remove="Images\fondo.jpg" />
+    <None Remove="Images\pokebola.ico" />
+    <None Remove="Images\pokequiz.png" />
+    <None Remove="Images\portada.png" />
+    <None Remove="Images\pregunta.png" />
+    <None Remove="Images\pregunta2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,64 +42,64 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="images\1.png">
+    <Content Include="Images\1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\10.png">
+    <Content Include="Images\10.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\11.png">
+    <Content Include="Images\11.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\2.png">
+    <Content Include="Images\2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\3.png">
+    <Content Include="Images\3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\4.png">
+    <Content Include="Images\4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\5.png">
+    <Content Include="Images\5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\6.png">
+    <Content Include="Images\6.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\7.png">
+    <Content Include="Images\7.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\8.png">
+    <Content Include="Images\8.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\9.png">
+    <Content Include="Images\9.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\btniniciar.png">
+    <Content Include="Images\btniniciar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\btnsig.png">
+    <Content Include="Images\btnsig.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\fondo.jpg">
+    <Content Include="Images\fondo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\pokequiz.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\pokequiz.png">
+    <Content Include="Images\portada.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\portada.png">
+    <Content Include="Images\pregunta.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\pregunta.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="images\pregunta2.png">
+    <Content Include="Images\pregunta2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="images\pokebola.ico">
+    <Resource Include="Images\pokebola.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

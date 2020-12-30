@@ -8,6 +8,7 @@
              xmlns:model="clr-namespace:QuizPokemonWPF.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Visibility" Value="Hidden"></Setter>
@@ -25,7 +26,8 @@
         </DockPanel.Background>
         <Image DockPanel.Dock="Top" Source="/images/pokequiz.png" Height="100px"></Image>
         <Button DockPanel.Dock="Bottom" Width="200" Height="50" Margin="20,0, 20 5" Background="Transparent" BorderThickness="0">
-            <Image Source="/images/btnsig.png" ></Image>
+
+            <Image Source="/Images/btnsig.png" ></Image>
         </Button>
         <DockPanel>
             <Image DockPanel.Dock="Left" Source="/images/5.png" Width="180" Margin="10,130,0,0"></Image>

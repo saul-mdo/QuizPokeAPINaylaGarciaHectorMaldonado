@@ -21,7 +21,7 @@ namespace QuizPokemonWPF.ViewModel
 
         public ObservableCollection<Pokemon> listaPokes { get; set; } = new ObservableCollection<Pokemon>();
 
-        public Modal ModalVisible { get; set; } = Modal.p2;
+        public Modal ModalVisible { get; set; } = Modal.Inicio;
 
         public Pokemon Pokemon { get; set; } = new Pokemon();
 

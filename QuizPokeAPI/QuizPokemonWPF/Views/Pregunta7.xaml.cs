@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace QuizPokemonWPF.Views
 {
     /// <summary>
-    /// Lógica de interacción para Pregunta1.xaml
+    /// Lógica de interacción para Pregunta7.xaml
     /// </summary>
-    public partial class Pregunta1 : UserControl
+    public partial class Pregunta7 : UserControl
     {
-        public Pregunta1()
+        public Pregunta7()
         {
             InitializeComponent();
         }

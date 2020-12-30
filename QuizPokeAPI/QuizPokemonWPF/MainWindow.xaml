@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:QuizPokemonWPF.ViewModel"
-        xmlns:local ="clr-namespace:QuizPokemonWPF.Views"
+        xmlns:views ="clr-namespace:QuizPokemonWPF.Views"
         mc:Ignorable="d"
         Title="PokeQuiz" Height="450" Width="800" Icon="/images/pokebola.ico">
    
@@ -15,16 +15,18 @@
     <Grid>
         <DockPanel>
             <DockPanel.Background>
-                <ImageBrush ImageSource="/images/fondo.jpg"></ImageBrush>
+                <ImageBrush ImageSource="/Images/fondo.jpg"></ImageBrush>
             </DockPanel.Background>
-            <Image DockPanel.Dock="Top" Source="/images/pokequiz.png" Height="150px"></Image>
+            <Image DockPanel.Dock="Top" Source="/Images/pokequiz.png" Height="150px"></Image>
             <Button Command="{Binding InciarQuizCommand}"  DockPanel.Dock="Left" Width="250" Height="80" Margin="100,100,50,100" Background="Transparent" BorderThickness="0">
-                <Image Source="/images/btniniciar.png" ></Image>
+                <Image Source="/Images/btniniciar.png" ></Image>
             </Button>
-            <Image Source="/images/portada.png" Width="400"></Image>
+            <Image Source="/Images/portada.png" Width="400"></Image>
         </DockPanel>
-        
-       <!--<local:Pregunta2></local:Pregunta2>-->
+
+        <views:Pregunta2></views:Pregunta2>
+        <views:Pregunta3></views:Pregunta3>
+
 
     </Grid>
 </Window>
