@@ -21,7 +21,7 @@ namespace QuizPokemonWPF.ViewModel
 
         public ObservableCollection<Pokemon> listaPokes { get; set; } = new ObservableCollection<Pokemon>();
 
-        public Modal ModalVisible { get; set; } = Modal.Inicio;
+        public Modal ModalVisible { get; set; } = Modal.p2;
 
         public Pokemon Pokemon { get; set; } = new Pokemon();
 
@@ -30,41 +30,38 @@ namespace QuizPokemonWPF.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public int MyProperty
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
+      
 
 
         public PokemonViewModel()
         {
-            //for (int i = 0; i <= 20; i++)
-            //{
-            //    var id = IdPokemonRandom();
-            //    GetPokemon(id);
-            //}
-            var id = IdPokemonRandom();
-            GetPokemon(id);
-            id = IdPokemonRandom();
-            GetPokemon(id);
 
-            // InciarQuizCommand = new RelayCommand(IniciarQuiz);
+            var i = 0;
+
+            while (i<20)
+            {
+                var id = IdPokemonRandom();
+                GetPokemon(id);
+                i++;
+
+            }
+
+            InciarQuizCommand = new RelayCommand(IniciarQuiz);
         }
 
         public int IdPokemonRandom()
         {
             Random r = new Random();
-           int idRandom = r.Next(1, 1117);
+           int idRandom = r.Next(1, 898);
             return idRandom;
         }
 
-        async void IniciarQuiz()
+        public void IniciarQuiz()
         {
-            var id = IdPokemonRandom();
-            GetPokemon(id);
+            //var id = IdPokemonRandom();
+            //GetPokemon(id);
             // CAMBIAR MODAL A LA PRGUNTA 1
-            ModalVisible = Modal.p1;
+            ModalVisible = Modal.p2;
             Lanzar();
 
         }

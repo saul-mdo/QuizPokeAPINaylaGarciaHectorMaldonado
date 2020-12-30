@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\InicioUserControl.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="images\1.png" />
     <None Remove="images\10.png" />
     <None Remove="images\11.png" />
@@ -26,6 +30,10 @@
     <None Remove="images\portada.png" />
     <None Remove="images\pregunta.png" />
     <None Remove="images\pregunta2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Views\InicioUserControl.xaml" />
   </ItemGroup>
 
   <ItemGroup>
