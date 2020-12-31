@@ -25,6 +25,7 @@ namespace QuizPokemonWPF.ViewModel
         public ICommand InciarQuizCommand { get; set; }
         public ICommand SiguienteCommand { get; set; }
         public ICommand ReiniciarQuizCommand { get; set; }
+        public ICommand ValidarRespuestaCommand { get; set; }
 
         public int Puntaje { get; set; } = 0;
 
@@ -46,9 +47,14 @@ namespace QuizPokemonWPF.ViewModel
 
             InciarQuizCommand = new RelayCommand(IniciarQuiz);
             SiguienteCommand = new RelayCommand(Siguiente);
+            ValidarRespuestaCommand = new RelayCommand(Validar);
             ReiniciarQuizCommand = new RelayCommand(ReiniciarQuiz);
         }
 
+        private void Validar()
+        {
+            
+        }
 
         public void LlenarLista()
         {
