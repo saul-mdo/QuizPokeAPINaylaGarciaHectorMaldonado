@@ -29,12 +29,8 @@ namespace QuizPokemonWPF.ViewModel
 
         public int Puntaje { get; set; } = 0;
 
-
-
         public string TextoPregunta { get; set; } = "";
         public string TextoPregunta2 { get; set; } = "";
-        
-
 
         void Lanzar(string propertyName = null)
         {
@@ -85,6 +81,23 @@ namespace QuizPokemonWPF.ViewModel
             if (contador <= 9)
             {
                 ModalVisible = (Modal)contador;
+                TextoPregunta = "";
+                TextoPregunta2 = "";
+
+                switch (ModalVisible)
+                {
+                    case Modal.p1:
+                        TextoPregunta = "BINDING PREGUNTA 1";
+                        break;
+                    case Modal.p2:
+                        TextoPregunta = "BINDING PREGUNTA 2";
+                        break;
+                    case Modal.p3:
+                        TextoPregunta = "BINDING PREGUNTA 3";
+                        break;
+                }
+
+
                 contador++;
             }
             else
@@ -104,6 +117,7 @@ namespace QuizPokemonWPF.ViewModel
 
         public void IniciarQuiz()
         {
+            // BINDING A LA PREGUNTA 1
             ModalVisible = Modal.p1;
             Lanzar();
 

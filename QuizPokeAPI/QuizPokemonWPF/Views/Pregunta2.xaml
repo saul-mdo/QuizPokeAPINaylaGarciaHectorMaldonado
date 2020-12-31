@@ -40,7 +40,7 @@
 
                 <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
                     <Label FontWeight="Bold">PREGUNTA 2.</Label>
-                    <TextBlock>¿Qué pokemon posee la habilidad <TextBlock Text="{Binding }"></TextBlock>?</TextBlock>
+                    <TextBlock>¿Qué pokemon posee la habilidad <TextBlock Text="{Binding TextoPregunta}"></TextBlock>?</TextBlock>
                 </TextBlock>
                 
                 <UniformGrid Columns="4" Margin="30,25,40,40">
