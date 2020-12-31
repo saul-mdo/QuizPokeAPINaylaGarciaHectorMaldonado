@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-<UserControl.Style>
+<!--<UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Visibility" Value="Hidden"></Setter>
             <Style.Triggers>
@@ -18,7 +18,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-    </UserControl.Style>
+    </UserControl.Style>-->
 
 
     <DockPanel >
@@ -38,8 +38,10 @@
                 </StackPanel.Background>
 
                 <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
-                    <Label FontWeight="Bold">PREGUNTA 3.</Label>
-                    Cual es el nombre del pokemon que hace esto, el otro y el otro? ddddddddddddddddddddddddddddddddddddddddddddddddddd</TextBlock>
+                    <Label FontWeight="Bold">PREGUNTA 2.</Label>
+                    IMAGEN
+                </TextBlock>
+                
                 <UniformGrid Columns="4" Margin="40,25,30,40">
                     <UniformGrid.Resources>
                         <Style TargetType="Button">

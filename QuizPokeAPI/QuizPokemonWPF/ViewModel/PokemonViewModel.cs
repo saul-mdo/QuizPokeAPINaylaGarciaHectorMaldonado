@@ -28,6 +28,13 @@ namespace QuizPokemonWPF.ViewModel
 
         public int Puntaje { get; set; } = 0;
 
+
+
+        public string TextoPregunta { get; set; } = "";
+        public string TextoPregunta2 { get; set; } = "";
+        
+
+
         void Lanzar(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -110,3 +117,27 @@ namespace QuizPokemonWPF.ViewModel
 
     }
 }
+
+
+// PREGUNTAS
+/*
+1. ¿Qué pokemon es tipo __?
+
+2. ¿Que pokemon posee la habilidad __?
+
+3. ¿Cual es el nombre de este pokemon? (IMAGEN)
+
+4. ¿Que pokemon tiene el movimiento ___?
+
+5. El pokemon ___ puede aprender el movimiento ___. ¿Cierto o falso?
+
+6. ¿Que pokemon es más alto?
+
+7. ¿Que pokemon es más pesado?
+
+8. ¿Que tipo es este pokemon? (IMAGEN)
+
+9.El pokemon ____ es tipo ____. ¿Cierto o falso?
+
+10. ¿Qué pokemon tiene dos tipos?
+*/

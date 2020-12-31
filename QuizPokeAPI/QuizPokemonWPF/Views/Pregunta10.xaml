@@ -8,7 +8,7 @@
               xmlns:views ="clr-namespace:QuizPokemonWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Style>
+    <!--<UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Visibility" Value="Hidden"></Setter>
             <Style.Triggers>
@@ -17,7 +17,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-    </UserControl.Style>
+    </UserControl.Style>-->
 
     <DockPanel >
         <DockPanel.Background>
@@ -37,7 +37,8 @@
 
                 <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
                     <Label FontWeight="Bold">PREGUNTA 10.</Label>
-                    Cual es el nombre del pokemon que hace esto, el otro y el otro? ddddddddddddddddddddddddddddddddddddddddddddddddddd</TextBlock>
+                    ¿Qué pokemon posee dos tipos?
+                </TextBlock>
                 <UniformGrid Columns="4" Margin="30,25,40,40">
                     <UniformGrid.Resources>
                         <Style TargetType="Button">

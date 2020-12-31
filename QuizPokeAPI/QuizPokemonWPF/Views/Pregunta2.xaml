@@ -40,7 +40,9 @@
 
                 <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
                     <Label FontWeight="Bold">PREGUNTA 2.</Label>
-                    Cual es el nombre del pokemon que hace esto, el otro y el otro? ddddddddddddddddddddddddddddddddddddddddddddddddddd</TextBlock>
+                    <TextBlock>¿Qué pokemon posee la habilidad <TextBlock Text="{Binding }"></TextBlock>?</TextBlock>
+                </TextBlock>
+                
                 <UniformGrid Columns="4" Margin="30,25,40,40">
                     <UniformGrid.Resources>
                         <Style TargetType="Button">
