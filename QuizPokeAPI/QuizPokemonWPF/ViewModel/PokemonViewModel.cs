@@ -48,19 +48,28 @@ namespace QuizPokemonWPF.ViewModel
 
             InciarQuizCommand = new RelayCommand(IniciarQuiz);
             SiguienteCommand = new RelayCommand(Siguiente);
+            SiguienteCommand2 = new RelayCommand(Siguiente2);
+        }
+
+        private void Siguiente2()
+        {
+            ModalVisible = Modal.p3;
+            //contador++;
+            Lanzar();
         }
 
         private void Siguiente()
         {
+            //int contador = 1;
             //if (contador <= 10)
             //{
-                //string ventana = $"p{contador}";
+            //    //string ventana = $"p{contador}";
                 ModalVisible = Modal.p2;
                 //contador++;
-               Lanzar();
-               
+                Lanzar();
+
             //}
-            
+
         }
 
         public int IdPokemonRandom()
@@ -96,5 +105,6 @@ namespace QuizPokemonWPF.ViewModel
 
         public ICommand InciarQuizCommand { get; set; }
         public ICommand SiguienteCommand { get; set; }
+        public ICommand SiguienteCommand2 { get; set; }
     }
 }
