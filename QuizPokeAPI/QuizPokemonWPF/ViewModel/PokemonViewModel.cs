@@ -22,54 +22,64 @@ namespace QuizPokemonWPF.ViewModel
         public ObservableCollection<Pokemon> listaPokes { get; set; } = new ObservableCollection<Pokemon>();
 
         public Modal ModalVisible { get; set; } = Modal.Inicio;
+        public ICommand InciarQuizCommand { get; set; }
+        public ICommand SiguienteCommand { get; set; }
+        public ICommand ReiniciarQuizCommand { get; set; }
 
-        public Pokemon Pokemon { get; set; } = new Pokemon();
+        public int Puntaje { get; set; } = 0;
 
         void Lanzar(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-      
-
-
         public PokemonViewModel()
         {
+            LlenarLista();
 
+            InciarQuizCommand = new RelayCommand(IniciarQuiz);
+            SiguienteCommand = new RelayCommand(Siguiente);
+            ReiniciarQuizCommand = new RelayCommand(ReiniciarQuiz);
+        }
+
+
+        public void LlenarLista()
+        {
             var i = 0;
-
-            while (i<20)
+            while (i < 20)
             {
                 var id = IdPokemonRandom();
                 GetPokemon(id);
                 i++;
-
             }
-
-            InciarQuizCommand = new RelayCommand(IniciarQuiz);
-            SiguienteCommand = new RelayCommand(Siguiente);
-            SiguienteCommand2 = new RelayCommand(Siguiente2);
         }
 
-        private void Siguiente2()
+        private void ReiniciarQuiz()
         {
-            ModalVisible = Modal.p3;
-            //contador++;
+            // 1. HACE VISIBLE LA PANTALLA PRINCIPAL
+            ModalVisible = Modal.Inicio;
             Lanzar();
+            listaPokes.Clear();
+            LlenarLista();
+            // 2. REINICIAR LOS PUNTAJES
+            Puntaje = 0;
         }
+
+        int contador = 1;
 
         private void Siguiente()
         {
-            //int contador = 1;
-            //if (contador <= 10)
-            //{
-            //    //string ventana = $"p{contador}";
-                ModalVisible = Modal.p2;
-                //contador++;
-                Lanzar();
-
-            //}
-
+            if (contador <= 9)
+            {
+                ModalVisible = (Modal)contador;
+                contador++;
+            }
+            else
+            {
+                ModalVisible = Modal.puntajes;
+                contador = 1;
+            }
+            Lanzar();
         }
 
         public int IdPokemonRandom()
@@ -79,13 +89,8 @@ namespace QuizPokemonWPF.ViewModel
             return idRandom;
         }
 
-      
         public void IniciarQuiz()
         {
-            //var id = IdPokemonRandom();
-            //GetPokemon(id);
-            // CAMBIAR MODAL A LA PRGUNTA 1
-           // contador++;
             ModalVisible = Modal.p1;
             Lanzar();
 
@@ -97,14 +102,11 @@ namespace QuizPokemonWPF.ViewModel
             if (result.IsSuccessStatusCode)
             {
                 string datos = await result.Content.ReadAsStringAsync();
-                Pokemon = JsonConvert.DeserializeObject<Pokemon>(datos);
+                var Pokemon = JsonConvert.DeserializeObject<Pokemon>(datos);
                 listaPokes.Add(Pokemon);
                 Lanzar();
             }
         }
 
-        public ICommand InciarQuizCommand { get; set; }
-        public ICommand SiguienteCommand { get; set; }
-        public ICommand SiguienteCommand2 { get; set; }
     }
 }

@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuizPokemonWPF
+namespace QuizPokemonWPF.Views
 {
     /// <summary>
-    /// Lógica de interacción para PuntajeUserControl.xaml
+    /// Lógica de interacción para Puntajes.xaml
     /// </summary>
-    public partial class PuntajeUserControl : UserControl
+    public partial class Puntajes : UserControl
     {
-        public PuntajeUserControl()
+        public Puntajes()
         {
             InitializeComponent();
         }

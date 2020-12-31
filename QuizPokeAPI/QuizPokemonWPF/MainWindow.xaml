@@ -27,7 +27,16 @@
         <views:Pregunta1></views:Pregunta1>
         <views:Pregunta2></views:Pregunta2>
         <views:Pregunta3></views:Pregunta3>
-
+        <views:Pregunta4></views:Pregunta4>
+        <views:Pregunta5></views:Pregunta5>
+        <views:Pregunta6></views:Pregunta6>
+        <views:Pregunta7></views:Pregunta7>
+        <views:Pregunta8></views:Pregunta8>
+        <views:Pregunta9></views:Pregunta9>
+        <views:Pregunta10></views:Pregunta10>
+        <views:Puntajes></views:Puntajes>
+        
+ 
 
     </Grid>
 </Window>

@@ -24,7 +24,7 @@
             <ImageBrush ImageSource="/images/fondo.jpg"></ImageBrush>
         </DockPanel.Background>
         <Image DockPanel.Dock="Top" Source="/images/pokequiz.png" Height="100px"></Image>
-        <Button DockPanel.Dock="Bottom" Width="200" Height="50" Margin="20,0, 20, 5" Background="Transparent" BorderThickness="0">
+        <Button Command="{Binding SiguienteCommand}" DockPanel.Dock="Bottom" Width="200" Height="50" Margin="20,0, 20, 5" Background="Transparent" BorderThickness="0">
 
             <Image Source="/Images/btnsig.png" ></Image>
         </Button>
@@ -36,7 +36,7 @@
                 </StackPanel.Background>
 
                 <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
-                    <Label FontWeight="Bold">PREGUNTA 1.</Label>
+                    <Label FontWeight="Bold">PREGUNTA 6.</Label>
                     Cual es el nombre del pokemon que hace esto, el otro y el otro? ddddddddddddddddddddddddddddddddddddddddddddddddddd</TextBlock>
                 <UniformGrid Columns="4" Margin="30,25,40,40">
                     <UniformGrid.Resources>
