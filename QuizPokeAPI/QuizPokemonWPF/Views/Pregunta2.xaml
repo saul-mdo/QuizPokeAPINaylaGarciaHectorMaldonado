@@ -19,27 +19,28 @@
             </Style.Triggers>
         </Style>
     </UserControl.Style>
-
+ 
+    
     <DockPanel >
         <DockPanel.Background>
             <ImageBrush ImageSource="/images/fondo.jpg"></ImageBrush>
         </DockPanel.Background>
         <Image DockPanel.Dock="Top" Source="/images/pokequiz.png" Height="100px"></Image>
-        <Button DockPanel.Dock="Bottom" Width="200" Height="50" Margin="20,0, 20 5" Background="Transparent" BorderThickness="0">
+        <Button  Command="{Binding SiguienteCommand}" DockPanel.Dock="Bottom" Width="200" Height="50" Margin="20,0, 20 5" Background="Transparent" BorderThickness="0">
 
             <Image Source="/Images/btnsig.png" ></Image>
         </Button>
         <DockPanel>
-            <Image DockPanel.Dock="Left" Source="/images/5.png" Width="180" Margin="10,130,0,0"></Image>
+            <Image DockPanel.Dock="Right" Source="/images/1.png" Width="180" Margin="0,130,10,0"></Image>
             <StackPanel Margin="20" >
                 <StackPanel.Background>
-                    <ImageBrush ImageSource="/images/pregunta2.png"></ImageBrush>
+                    <ImageBrush ImageSource="/images/pregunta.png"></ImageBrush>
                 </StackPanel.Background>
 
                 <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
                     <Label FontWeight="Bold">PREGUNTA 1.</Label>
                     Cual es el nombre del pokemon que hace esto, el otro y el otro? ddddddddddddddddddddddddddddddddddddddddddddddddddd</TextBlock>
-                <UniformGrid Columns="4" Margin="40,25,30,40">
+                <UniformGrid Columns="4" Margin="30,25,40,40">
                     <UniformGrid.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Margin" Value="5"></Setter>

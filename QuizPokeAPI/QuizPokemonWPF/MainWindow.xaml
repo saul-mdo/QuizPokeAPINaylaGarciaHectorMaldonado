@@ -24,6 +24,7 @@
             <Image Source="/Images/portada.png" Width="400"></Image>
         </DockPanel>
 
+        <views:Pregunta1></views:Pregunta1>
         <views:Pregunta2></views:Pregunta2>
         <views:Pregunta3></views:Pregunta3>
 
