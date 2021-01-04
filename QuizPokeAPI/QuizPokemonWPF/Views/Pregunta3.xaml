@@ -37,10 +37,11 @@
                     <ImageBrush ImageSource="/images/pregunta2.png"></ImageBrush>
                 </StackPanel.Background>
 
-                <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
-                    <Label FontWeight="Bold">PREGUNTA 3.</Label>
-                    <TextBlock Text="{Binding TextoPregunta}"></TextBlock>
-                </TextBlock>
+                <DockPanel  Margin="40,25" >
+                    <Image DockPanel.Dock="Right" Source="{Binding Imagen}" Margin="10" Height="55"></Image>
+                    <Label FontSize="20" DockPanel.Dock="Top" FontWeight="Bold">PREGUNTA 3.</Label>
+                    <TextBlock FontSize="20" TextWrapping="Wrap" Text="{Binding TextoPregunta}">  Cuál es el nombre de este pokemon? </TextBlock>
+                </DockPanel>
                 
                 <UniformGrid Columns="4" Margin="40,25,30,40">
                     <UniformGrid.Resources>
@@ -49,6 +50,7 @@
                             <Setter Property="Padding" Value="5"></Setter>
                             <Setter Property="Background" Value="LightBlue"></Setter>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="Height" Value="35"></Setter>
                         </Style>
                     </UniformGrid.Resources>
                     <Button>Opcion 1</Button>

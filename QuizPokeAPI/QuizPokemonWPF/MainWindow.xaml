@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:QuizPokemonWPF.ViewModel"
         xmlns:views ="clr-namespace:QuizPokemonWPF.Views"
         mc:Ignorable="d"
-        Title="PokeQuiz" Height="450" Width="800" Icon="/images/pokebola.ico">
+        Title="PokeQuiz" Height="460" Width="800" Icon="/images/pokebola.ico">
    
     <Window.DataContext>
         <vm:PokemonViewModel></vm:PokemonViewModel>

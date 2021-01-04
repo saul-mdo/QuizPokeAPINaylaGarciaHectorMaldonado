@@ -35,12 +35,12 @@
                     <ImageBrush ImageSource="/images/pregunta2.png"></ImageBrush>
                 </StackPanel.Background>
 
-                <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
-                    <Label FontWeight="Bold">PREGUNTA 5.</Label>
-                    <TextBlock>El pokemon <TextBlock Text="{Binding}"></TextBlock> puede aprender el movimiento <TextBlock Text="{Binding}"></TextBlock>.¿Cierto o falso?</TextBlock>
-                </TextBlock>
+                <StackPanel  Margin="40,25" >
+                    <Label FontSize="20" FontWeight="Bold">PREGUNTA 5.</Label>
+                    <TextBlock FontSize="20" TextWrapping="Wrap" Height="50">El pokemon <TextBlock Text="{Binding}"></TextBlock> puede aprender el movimiento <TextBlock Text="{Binding}"></TextBlock>.¿Cierto o falso?</TextBlock>
+                </StackPanel>
                 
-                <UniformGrid Columns="4" Margin="40,25,30,40">
+                <UniformGrid Columns="2" Margin="40,25,30,40">
                     <UniformGrid.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Margin" Value="5"></Setter>

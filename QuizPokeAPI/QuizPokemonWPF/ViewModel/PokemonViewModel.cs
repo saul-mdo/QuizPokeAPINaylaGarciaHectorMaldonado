@@ -31,6 +31,7 @@ namespace QuizPokemonWPF.ViewModel
 
         public string TextoPregunta { get; set; } = "";
         public string TextoPregunta2 { get; set; } = "";
+        public string Imagen { get; set; } = "/images/1.png";
 
         void Lanzar(string propertyName = null)
         {

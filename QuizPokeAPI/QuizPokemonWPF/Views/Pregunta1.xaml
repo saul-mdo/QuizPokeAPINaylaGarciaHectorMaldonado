@@ -36,10 +36,10 @@
                     <ImageBrush ImageSource="/images/pregunta2.png"></ImageBrush>
                 </StackPanel.Background>
 
-                <TextBlock FontSize="15" Padding="40,25" TextWrapping="Wrap">
-                    <Label FontWeight="Bold">PREGUNTA 1.</Label>
-                    <TextBlock>¿Qué pokemon es tipo <TextBlock Text="{Binding TextoPregunta}"></TextBlock>?</TextBlock>
-                </TextBlock>
+                <StackPanel  Margin="40,25" >
+                    <Label FontSize="20" FontWeight="Bold">PREGUNTA 1.</Label>
+                    <TextBlock FontSize="20" TextWrapping="Wrap" Height="50">¿Qué pokemon es tipo <TextBlock Text="{Binding TextoPregunta}"></TextBlock>?</TextBlock>
+                </StackPanel>
                 <UniformGrid Columns="4" Margin="40,25,30,40">
                     <UniformGrid.Resources>
                         <Style TargetType="Button">
@@ -47,6 +47,7 @@
                             <Setter Property="Padding" Value="5"></Setter>
                             <Setter Property="Background" Value="LightBlue"></Setter>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="Height" Value="35"></Setter>
                         </Style>
                     </UniformGrid.Resources>
                     <Button>Opcion 1</Button>
