@@ -22,16 +22,21 @@ namespace QuizPokemonWPF.ViewModel
         public ObservableCollection<Pokemon> listaPokes { get; set; } = new ObservableCollection<Pokemon>();
 
         public Modal ModalVisible { get; set; } = Modal.Inicio;
-        public ICommand InciarQuizCommand { get; set; }
+        public bool botonSiguienteActivo { get; set; } = false;
+        public bool botonRespuestasActivo { get; set; } = true;
         public ICommand SiguienteCommand { get; set; }
         public ICommand ReiniciarQuizCommand { get; set; }
         public ICommand ValidarRespuestaCommand { get; set; }
-
         public int Puntaje { get; set; } = 0;
-
         public string TextoPregunta { get; set; } = "";
         public string TextoPregunta2 { get; set; } = "";
-        public string Imagen { get; set; } = "/images/1.png";
+        public string respuestaCorrecta { get; set; } = "";
+        public string Imagen { get; set; } = "";
+
+        public string RP1 { get; set; } = "";
+        public string RP2 { get; set; } = "";
+        public string RP3 { get; set; } = "";
+        public string RP4 { get; set; } = "";
 
         void Lanzar(string propertyName = null)
         {
@@ -42,15 +47,25 @@ namespace QuizPokemonWPF.ViewModel
         {
             LlenarLista();
 
-            InciarQuizCommand = new RelayCommand(IniciarQuiz);
             SiguienteCommand = new RelayCommand(Siguiente);
-            ValidarRespuestaCommand = new RelayCommand(Validar);
+            ValidarRespuestaCommand = new RelayCommand<string>(Validar);
             ReiniciarQuizCommand = new RelayCommand(ReiniciarQuiz);
         }
 
-        private void Validar()
+        private void Validar(string respuesta)
         {
-            
+            botonRespuestasActivo = false;
+            botonSiguienteActivo = true;
+
+            if (respuesta.ToUpper() == respuestaCorrecta.ToUpper())
+            {
+                Puntaje = Puntaje + 10;
+            }
+            else
+            {
+                Puntaje = Puntaje;
+            }
+            Lanzar();
         }
 
         public void LlenarLista()
@@ -66,39 +81,59 @@ namespace QuizPokemonWPF.ViewModel
 
         private void ReiniciarQuiz()
         {
-            // 1. HACE VISIBLE LA PANTALLA PRINCIPAL
             ModalVisible = Modal.Inicio;
             Lanzar();
             listaPokes.Clear();
             LlenarLista();
-            // 2. REINICIAR LOS PUNTAJES
             Puntaje = 0;
+            respuestaCorrecta = "";
+            TextoPregunta = "";
+            TextoPregunta2 = "";
         }
 
-        int contador = 1;
+        int contador = 0;
 
         private void Siguiente()
         {
+            botonSiguienteActivo = false;
+            botonRespuestasActivo = true;
             if (contador <= 9)
             {
                 ModalVisible = (Modal)contador;
-                TextoPregunta = "";
-                TextoPregunta2 = "";
-
                 switch (ModalVisible)
                 {
                     case Modal.p1:
-                        TextoPregunta = "BINDING PREGUNTA 1";
+                        generarRespuesta1();
                         break;
                     case Modal.p2:
-                        TextoPregunta = "BINDING PREGUNTA 2";
+                        generarRespuesta2();
                         break;
                     case Modal.p3:
-                        TextoPregunta = "BINDING PREGUNTA 3";
+                        generarRespuestas3();
+                        break;
+                    case Modal.p4:
+                        break;
+                    case Modal.p5:
+                        TextoPregunta = "BINDING PREGUNTA 5";
+                        TextoPregunta2 = "SEGUNDO BINDING PREGUNTA 5";
+                        break;
+                    case Modal.p6:
+                       
+                        break;
+                    case Modal.p7:
+                      
+                        break;
+                    case Modal.p8:
+                        
+                        break;
+                    case Modal.p9:
+                        TextoPregunta = "BINDING PREGUNTA 9";
+                        TextoPregunta2 = "SEGUNDO BINDING PREGUNTA 9";
+                        break;
+                    case Modal.p10:
+                       
                         break;
                 }
-
-
                 contador++;
             }
             else
@@ -116,14 +151,6 @@ namespace QuizPokemonWPF.ViewModel
             return idRandom;
         }
 
-        public void IniciarQuiz()
-        {
-            // BINDING A LA PREGUNTA 1
-            ModalVisible = Modal.p1;
-            Lanzar();
-
-        }
-
         async void GetPokemon(int idPokemon)
         {
             var result = await client.GetAsync($"api/v2/pokemon/{idPokemon}");
@@ -136,6 +163,52 @@ namespace QuizPokemonWPF.ViewModel
             }
         }
 
+        public int numRandomLista()
+        {
+            Random r = new Random();
+            int num = r.Next(1, 20);
+            return num;
+        }
+
+        public void generarRespuesta1()
+        {
+            var poke = listaPokes[numRandomLista()];
+
+            respuestaCorrecta = poke.name;
+            TextoPregunta = poke.types[0].type.name;
+
+            RP1 = listaPokes[numRandomLista()].name;
+            RP2 = respuestaCorrecta;
+            RP3 = listaPokes[numRandomLista()].name;
+            RP4 = listaPokes[numRandomLista()].name; 
+
+        }
+        public void generarRespuesta2()
+        {
+            var poke = listaPokes[numRandomLista()];
+            respuestaCorrecta = poke.name;
+            TextoPregunta = poke.abilities[0].ability.name;
+
+            RP1 = listaPokes[numRandomLista()].name;
+            RP2 = listaPokes[numRandomLista()].name;
+            RP3 = listaPokes[numRandomLista()].name;
+            RP4 = respuestaCorrecta;
+        }
+
+        public void generarRespuestas3()
+        {
+            var poke = listaPokes[numRandomLista()];
+            Imagen = poke.sprites.front_default;
+
+            respuestaCorrecta = poke.name;
+
+            RP1 = respuestaCorrecta;
+            RP2 = listaPokes[numRandomLista()].name;
+            RP3 = listaPokes[numRandomLista()].name;
+            RP4 = listaPokes[numRandomLista()].name;
+
+
+        }
     }
 }
 

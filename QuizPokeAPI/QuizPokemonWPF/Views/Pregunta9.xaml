@@ -25,7 +25,16 @@
         </DockPanel.Background>
         <Image DockPanel.Dock="Top" Source="/images/pokequiz.png" Height="100px"></Image>
         <Button Command="{Binding SiguienteCommand}"  DockPanel.Dock="Bottom" Width="200" Height="50" Margin="20,0, 20 5" Background="Transparent" BorderThickness="0">
-
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding botonSiguienteActivo}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
             <Image Source="/Images/btnsig.png" ></Image>
         </Button>
         <DockPanel>
@@ -37,8 +46,10 @@
 
                 <StackPanel  Margin="40,25" >
                     <Label FontSize="20" DockPanel.Dock="Top" FontWeight="Bold">PREGUNTA 9.</Label>
-                    <TextBlock  FontSize="20" TextWrapping="Wrap" Height="50">El pokemon <TextBlock Text="{Binding}"></TextBlock> es tipo <TextBlock Text="{Binding}">
-                    </TextBlock >¿Cierto o falso?</TextBlock>
+                    <TextBlock  FontSize="20" TextWrapping="Wrap" Height="50">
+                        El pokemon <TextBlock Text="{Binding TextoPregunta}"></TextBlock> es tipo <TextBlock Text="{Binding TextoPregunta2}"></TextBlock >
+                        ¿Cierto o falso?
+                    </TextBlock>
                 </StackPanel>
 
 
@@ -50,10 +61,16 @@
                             <Setter Property="Background" Value="LightBlue"></Setter>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
                             <Setter Property="Height" Value="35"></Setter>
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding botonRespuestasActivo}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
                         </Style>
                     </UniformGrid.Resources>
-                    <Button>Cierto</Button>
-                    <Button>Falso</Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}">Cierto</Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}">Falso</Button>
                 </UniformGrid>
             </StackPanel>
         </DockPanel>

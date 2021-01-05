@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:QuizPokemonWPF.ViewModel"
         xmlns:views ="clr-namespace:QuizPokemonWPF.Views"
         mc:Ignorable="d"
-        Title="PokeQuiz" Height="460" Width="800" Icon="/images/pokebola.ico">
+        Title="PokeQuiz" Height="460" Width="800" MaxHeight="480" MaxWidth="820" Icon="/images/pokebola.ico">
    
     <Window.DataContext>
         <vm:PokemonViewModel></vm:PokemonViewModel>
@@ -18,7 +18,7 @@
                 <ImageBrush ImageSource="/Images/fondo.jpg"></ImageBrush>
             </DockPanel.Background>
             <Image DockPanel.Dock="Top" Source="/Images/pokequiz.png" Height="150px"></Image>
-            <Button Command="{Binding InciarQuizCommand}"  DockPanel.Dock="Left" Width="250" Height="80" Margin="100,100,50,100" Background="Transparent" BorderThickness="0">
+            <Button Command="{Binding SiguienteCommand}"  DockPanel.Dock="Left" Width="250" Height="80" Margin="100,100,50,100" Background="Transparent" BorderThickness="0">
                 <Image Source="/Images/btniniciar.png" ></Image>
             </Button>
             <Image Source="/Images/portada.png" Width="400"></Image>

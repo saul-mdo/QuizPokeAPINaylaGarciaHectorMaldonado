@@ -26,7 +26,16 @@
         </DockPanel.Background>
         <Image DockPanel.Dock="Top" Source="/images/pokequiz.png" Height="100px"></Image>
         <Button DockPanel.Dock="Bottom" Command="{Binding SiguienteCommand}" Width="200" Height="50" Margin="20,0, 20 5" Background="Transparent" BorderThickness="0">
-
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding botonSiguienteActivo}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
             <Image Source="/Images/btnsig.png" ></Image>
         </Button>
         <DockPanel>
@@ -48,12 +57,26 @@
                             <Setter Property="Background" Value="LightBlue"></Setter>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
                             <Setter Property="Height" Value="35"></Setter>
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding botonRespuestasActivo}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
                         </Style>
                     </UniformGrid.Resources>
-                    <Button>Opcion 1</Button>
-                    <Button>Opcion 2</Button>
-                    <Button>Opcion 3</Button>
-                    <Button>Opcion 4</Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}" CommandParameter="{Binding Source={x:Reference respuesta1},Path=Text}">
+                        <TextBlock x:Name="respuesta1" Text="{Binding RP1}"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}" CommandParameter="{Binding Source={x:Reference respuesta2},Path=Text}">
+                        <TextBlock x:Name="respuesta2" Text="{Binding RP2}"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}" CommandParameter="{Binding Source={x:Reference respuesta3},Path=Text}">
+                        <TextBlock x:Name="respuesta3" Text="{Binding RP3}"></TextBlock>
+                    </Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}" CommandParameter="{Binding Source={x:Reference respuesta4},Path=Text}">
+                        <TextBlock x:Name="respuesta4" Text="{Binding RP4}"></TextBlock>
+                    </Button>
                 </UniformGrid>
             </StackPanel>
         </DockPanel>
