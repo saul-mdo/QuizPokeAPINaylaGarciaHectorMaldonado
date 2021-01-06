@@ -1,0 +1,100 @@
+*{
+	/*box-sizing: border-box;*/
+	font-family: Arial, Helvetica;
+	font-size: large;
+}
+body{
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	background-image: url("images/fondo.jpg");
+	background-repeat: no-repeat;
+	background-size: 100vw 100vh;
+	background-attachment: fixed;
+
+
+}
+
+body nav
+{   
+	background-color: #19226A;
+	
+	/*align-content: center;*/
+}
+nav img{
+	height: 130px;
+	
+}
+
+.pregunta{
+
+	margin: auto;
+	width: 60vw;
+	padding: 40px;
+	
+	background-image: url("images/pregunta.png");
+	background-size: 75% 100% ;
+	background-repeat: no-repeat;
+	height: 200px;
+	position: relative;
+}
+
+.pregunta img{
+	height: 150px;
+	position: absolute;
+	right: 20px;
+
+}
+
+.opciones{
+	height: 50px;
+	width: 65%;
+	margin-top: 30px;
+	
+}
+.opciones label{
+	margin:10px;
+
+}
+
+input[type="submit"]{
+	color: white;
+	font-size: 25px;
+	margin: 40px 400px;
+	height: 50px;
+	width: 250px;
+	background-color: #19226A;
+}
+
+.puntaje{
+	text-align: center;
+  
+	height:calc(100vh-150px);
+	
+}
+.puntaje label{
+	 font-size: 40px;
+}
+.puntaje .result{
+	display: block;
+    font-weight: bold;
+	font-size: 100px;
+}
+.puntaje a{
+	display: block;
+	margin: auto;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+background-color: red;
+height: 50px;
+width: 200px;
+}
+.puntaje a:hover{
+	background-color: pink;
+}
+
+.puntaje img{
+	display: block;
+	margin: auto;
+}
