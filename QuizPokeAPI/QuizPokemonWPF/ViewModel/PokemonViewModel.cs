@@ -168,35 +168,35 @@ namespace QuizPokemonWPF.ViewModel
             }
         }
 
-        //public int numRandomLista()
-        //{
-        //    Random r = new Random();
-        //    int num = r.Next(1, 20);
-        //    return num;
-        //}
+        public int numRandomLista()
+        {
+            Random r = new Random();
+            int num = r.Next(1, 20);
+            return num;
+        }
 
         public void generarRespuesta1()
         {
-            var poke = listaPokes[3];
+            var poke = listaPokes[numRandomLista()];
 
             respuestaCorrecta = poke.name;
             TextoPregunta = poke.types[0].type.name;
 
-            var pokeExtra1 = listaPokes[19];
-            var pokeExtra2 = listaPokes[5];
-            var pokeExtra3 = listaPokes[4];
+            var pokeExtra1 = listaPokes[numRandomLista()];
+            var pokeExtra2 = listaPokes[numRandomLista()];
+            var pokeExtra3 = listaPokes[numRandomLista()];
 
-            if (pokeExtra1.types[0].type.name == poke.types[0].type.name)
+            if (pokeExtra1.types.Any(x=>x.type.name==TextoPregunta) || pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name|| pokeExtra1.name == poke.name)
             {
-                pokeExtra1 = listaPokes[12];
+                pokeExtra1 = listaPokes.FirstOrDefault(x => x.types.Any(x => x.type.name != TextoPregunta) == true && x.name!=poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
-            if (pokeExtra2.types[0].type.name == poke.types[0].type.name)
+            if (pokeExtra2.types.Any(x => x.type.name == TextoPregunta) || pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name || pokeExtra1.name == poke.name)
             {
-                pokeExtra2 = listaPokes[9];
+                pokeExtra2 = listaPokes.FirstOrDefault(x => x.types.Any(x => x.type.name != TextoPregunta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
-            if (pokeExtra3.types[0].type.name == poke.types[0].type.name)
+            if (pokeExtra3.types.Any(x => x.type.name == TextoPregunta) || pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name || pokeExtra1.name == poke.name)
             {
-                pokeExtra3 = listaPokes[16];
+                pokeExtra3 = listaPokes.FirstOrDefault(x => x.types.Any(x => x.type.name != TextoPregunta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
 
             RP1 = pokeExtra2.name;
@@ -207,27 +207,27 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta2()
         {
-            var poke = listaPokes[14];
+            var poke = listaPokes[numRandomLista()];
 
             respuestaCorrecta = poke.name;
 
             TextoPregunta = poke.abilities[0].ability.name;
 
-            var pokeExtra1 = listaPokes[2];
-            var pokeExtra2 = listaPokes[8];
-            var pokeExtra3 = listaPokes[1];
+            var pokeExtra1 = listaPokes[numRandomLista()];
+            var pokeExtra2 = listaPokes[numRandomLista()];
+            var pokeExtra3 = listaPokes[numRandomLista()];
 
-            if (pokeExtra1.abilities[0].ability.name == poke.abilities[0].ability.name)
+            if (pokeExtra1.abilities.Any(x=>x.ability.name==TextoPregunta) || pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name || pokeExtra1.name == poke.name)
             {
-                pokeExtra1 = listaPokes[17];
+                pokeExtra1 = listaPokes.FirstOrDefault(x => x.abilities.Any(x => x.ability.name != TextoPregunta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
-            if (pokeExtra1.abilities[0].ability.name == poke.abilities[0].ability.name)
+            if (pokeExtra2.abilities.Any(x => x.ability.name == TextoPregunta) || pokeExtra2.name == pokeExtra1.name || pokeExtra2.name == pokeExtra3.name || pokeExtra2.name == poke.name)
             {
-                pokeExtra2 = listaPokes[6];
+                pokeExtra2 = listaPokes.FirstOrDefault(x => x.abilities.Any(x => x.ability.name != TextoPregunta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
-            if (pokeExtra1.abilities[0].ability.name == poke.abilities[0].ability.name)
+            if (pokeExtra3.abilities.Any(x => x.ability.name == TextoPregunta) || pokeExtra3.name == pokeExtra2.name || pokeExtra3.name == pokeExtra1.name || pokeExtra3.name == poke.name)
             {
-                pokeExtra3 = listaPokes[7];
+                pokeExtra3 = listaPokes.FirstOrDefault(x => x.abilities.Any(x => x.ability.name != TextoPregunta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
 
             RP1 = pokeExtra2.name;
@@ -238,27 +238,27 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta3()
         {
-            var poke = listaPokes[8];
+            var poke = listaPokes[numRandomLista()];
             
             Imagen = poke.sprites.front_default;
 
             respuestaCorrecta = poke.name;
 
-            var pokeExtra1 = listaPokes[13];
-            var pokeExtra2 = listaPokes[11];
-            var pokeExtra3 = listaPokes[10];
+            var pokeExtra1 = listaPokes[numRandomLista()];
+            var pokeExtra2 = listaPokes[numRandomLista()];
+            var pokeExtra3 = listaPokes[numRandomLista()];
 
-            if (pokeExtra1.name == poke.name)
+            if (pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name || pokeExtra1.name == poke.name)
             {
-                pokeExtra1 = listaPokes[4];
+                pokeExtra1 = listaPokes.FirstOrDefault(x => x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
-            if (pokeExtra2.name == poke.name)
+            if (pokeExtra2.name == pokeExtra1.name || pokeExtra2.name == pokeExtra3.name || pokeExtra2.name == poke.name)
             {
-                pokeExtra2 = listaPokes[18];
+                pokeExtra2 = listaPokes.FirstOrDefault(x => x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
-            if (pokeExtra3.name == poke.name)
+            if  (pokeExtra3.name == pokeExtra1.name || pokeExtra2.name == pokeExtra3.name || pokeExtra3.name == poke.name)
             {
-                pokeExtra3 = listaPokes[3];
+                pokeExtra3 = listaPokes.FirstOrDefault(x => x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
 
             RP1 = respuestaCorrecta;
@@ -270,26 +270,36 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta4()
         {
-            var poke = listaPokes[10];
+            var poke = listaPokes[numRandomLista()];
             respuestaCorrecta = poke.name;
-            TextoPregunta = poke.moves[0].move.name;
-
-
-            var pokeExtra1 = listaPokes[8];
-            var pokeExtra2 = listaPokes[7];
-            var pokeExtra3 = listaPokes[6];
-
-            if (pokeExtra1.moves.Any(x=>x.move.name == respuestaCorrecta))
+            
+            if (poke.moves.Count() > 0)
             {
-                pokeExtra1 = listaPokes[11];
+                TextoPregunta = poke.moves[0].move.name;
             }
-            if (pokeExtra2.moves.Any(x => x.move.name == respuestaCorrecta))
+            else
             {
-                pokeExtra2 = listaPokes[19];
+                poke = listaPokes[numRandomLista()];
+                respuestaCorrecta = poke.name;
+                TextoPregunta = poke.moves[0].move.name;
             }
-            if (pokeExtra3.moves.Any(x => x.move.name == respuestaCorrecta))
+
+
+            var pokeExtra1 = listaPokes[numRandomLista()];
+            var pokeExtra2 = listaPokes[numRandomLista()];
+            var pokeExtra3 = listaPokes[numRandomLista()];
+
+            if (pokeExtra1.moves.Any(x=>x.move.name == TextoPregunta) || pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name || pokeExtra1.name == poke.name)
             {
-                pokeExtra3 = listaPokes[15];
+                pokeExtra1 = listaPokes.FirstOrDefault(x => x.moves.Any(x => x.move.name != respuestaCorrecta)==true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
+            }
+            if (pokeExtra2.moves.Any(x => x.move.name == TextoPregunta) || pokeExtra2.name == pokeExtra1.name || pokeExtra2.name == pokeExtra3.name || pokeExtra2.name == poke.name)
+            {
+                pokeExtra2 = listaPokes.FirstOrDefault(x => x.moves.Any(x => x.move.name != respuestaCorrecta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
+            }
+            if (pokeExtra3.moves.Any(x => x.move.name == TextoPregunta) || pokeExtra3.name == pokeExtra1.name || pokeExtra3.name == pokeExtra2.name || pokeExtra3.name == poke.name)
+            {
+                pokeExtra3 = listaPokes.FirstOrDefault(x => x.moves.Any(x => x.move.name != respuestaCorrecta) == true && x.name != poke.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name);
             }
 
             RP1 = pokeExtra2.name;
@@ -300,12 +310,23 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta5()
         {
-            var poke = listaPokes[8];
+            var poke = listaPokes[numRandomLista()];
 
             var cont = 0;
 
-            TextoPregunta = poke.name;
-            TextoPregunta2 = listaPokes[2].moves[9].move.name;
+            if (poke.moves.Count() > 0)
+            {
+                TextoPregunta = poke.name;
+                TextoPregunta2 = poke.moves[0].move.name;
+            }
+            else
+            {
+                poke = listaPokes[numRandomLista()];
+                respuestaCorrecta = poke.name;
+                TextoPregunta = poke.name;
+                TextoPregunta2 = poke.moves[0].move.name;
+            }
+
 
             foreach (var item in poke.moves)
             {
@@ -327,12 +348,29 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta6()
         {
-            var p1 = listaPokes[7];
-            var p2 = listaPokes[11];
-            var p3= listaPokes[16];
-            var p4= listaPokes[2];
+            var p1 = listaPokes[numRandomLista()];
+            var p2 = listaPokes[numRandomLista()];
+            var p3= listaPokes[numRandomLista()];
+            var p4= listaPokes[numRandomLista()];
 
-            if(p1.height> p2.height & p1.height > p3.height & p1.height > p4.height)
+            if (p1.name == p2.name || p1.name == p3.name || p1.name == p4.name)
+            {
+                p1 = listaPokes.FirstOrDefault(x => x.name != p2.name && x.name != p3.name && x.name != p4.name && x.name!= p1.name);
+            }
+            if (p2.name == p1.name || p2.name == p3.name || p2.name == p4.name)
+            {
+                p2 = listaPokes.FirstOrDefault(x => x.name != p1.name && x.name != p3.name && x.name != p4.name && x.name != p2.name);
+            }
+            if (p3.name == p1.name || p3.name == p2.name || p3.name == p4.name)
+            {
+                p3 = listaPokes.FirstOrDefault(x => x.name != p1.name && x.name != p2.name && x.name != p4.name && x.name != p3.name);
+            }
+            if (p4.name == p1.name || p4.name == p3.name || p4.name == p2.name)
+            {
+                p4 = listaPokes.FirstOrDefault(x => x.name != p1.name && x.name != p2.name && x.name != p3.name && x.name!=p4.name);
+            }
+
+            if (p1.height> p2.height & p1.height > p3.height & p1.height > p4.height)
             {
                 respuestaCorrecta = p1.name;
             }
@@ -358,10 +396,29 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta7()
         {
-            var p1 = listaPokes[19];
-            var p2 = listaPokes[1];
-            var p3 = listaPokes[2];
-            var p4 = listaPokes[9];
+            var p1 = listaPokes[numRandomLista()];
+            var p2 = listaPokes[numRandomLista()];
+            var p3 = listaPokes[numRandomLista()];
+            var p4 = listaPokes[numRandomLista()];
+
+            if(p1.name == p2.name || p1.name == p3.name || p1.name == p4.name)
+            {
+                p1 = listaPokes.FirstOrDefault(x => x.name != p2.name && x.name != p3.name && x.name != p4.name);
+            }
+            if (p2.name == p1.name || p2.name == p3.name || p2.name == p4.name)
+            {
+                p2 = listaPokes.FirstOrDefault(x => x.name != p1.name && x.name != p3.name && x.name != p4.name);
+            }
+            if (p3.name == p1.name || p3.name == p2.name || p3.name == p4.name)
+            {
+                p3 = listaPokes.FirstOrDefault(x => x.name != p1.name && x.name != p2.name && x.name != p4.name);
+            }
+            if (p4.name == p1.name || p4.name == p3.name || p4.name == p2.name)
+            {
+                p4 = listaPokes.FirstOrDefault(x => x.name != p1.name && x.name != p2.name && x.name != p3.name);
+            }
+
+
 
             if (p1.weight > p2.weight & p1.weight > p3.weight & p1.weight > p4.weight)
             {
@@ -389,27 +446,27 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta8()
         {
-            var poke = listaPokes[17];
+            var poke = listaPokes[numRandomLista()];
 
             Imagen = poke.sprites.front_default;
 
             respuestaCorrecta = poke.types[0].type.name;
 
-            var pokeExtra1 = listaPokes[10];
-            var pokeExtra2 = listaPokes[3];
-            var pokeExtra3 = listaPokes[18];
+            var pokeExtra1 = listaPokes[numRandomLista()];
+            var pokeExtra2 = listaPokes[numRandomLista()];
+            var pokeExtra3 = listaPokes[numRandomLista()];
 
-            if (pokeExtra1.types[0].type.name == poke.types[0].type.name)
+            if (pokeExtra1.types.Any(x=>x.type.name==respuestaCorrecta) || pokeExtra1.name == pokeExtra2.name || pokeExtra1.name == pokeExtra3.name || pokeExtra1.name == poke.name)
             {
-                pokeExtra1 = listaPokes[6];
+                pokeExtra1 = listaPokes.FirstOrDefault(x => x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != pokeExtra3.name && x.name != poke.name && x.types[0].type.name != poke.types[0].type.name);
             }
-            if (pokeExtra2.types[0].type.name == poke.types[0].type.name)
+            if (pokeExtra2.types.Any(x=>x.type.name==respuestaCorrecta) || pokeExtra2.name == pokeExtra1.name || pokeExtra2.name == pokeExtra3.name || pokeExtra2.name == poke.name)
             {
-                pokeExtra2 = listaPokes[2];
+                pokeExtra2 = listaPokes.FirstOrDefault(x => x.name != pokeExtra2.name && x.name != pokeExtra1.name && x.name != pokeExtra3.name && x.name != poke.name && x.types[0].type.name != poke.types[0].type.name);
             }
-            if (pokeExtra3.types[0].type.name == poke.types[0].type.name)
+            if (pokeExtra3.types.Any(x => x.type.name == respuestaCorrecta) || pokeExtra3.name == pokeExtra1.name || pokeExtra3.name == pokeExtra2.name || pokeExtra3.name == poke.name)
             {
-                pokeExtra3 = listaPokes[11];
+                pokeExtra3 = listaPokes.FirstOrDefault(x =>x.name != pokeExtra3.name && x.name != pokeExtra1.name && x.name != pokeExtra2.name && x.name != poke.name && x.types[0].type.name != poke.types[0].type.name);
             }
 
             RP1 = pokeExtra3.types[0].type.name;
@@ -420,12 +477,12 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta9()
         {
-            var poke = listaPokes[5];
+            var poke = listaPokes[numRandomLista()];
 
             var cont = 0;
 
             TextoPregunta = poke.name;
-            TextoPregunta2 = listaPokes[9].types[0].type.name;
+            TextoPregunta2 = listaPokes[numRandomLista()].types[0].type.name;
 
             foreach (var item in poke.types)
             {
@@ -447,40 +504,29 @@ namespace QuizPokemonWPF.ViewModel
         }
         public void generarRespuesta10()
         {
-            var p1 = listaPokes[8];
-            var p2 = listaPokes[2];
-            var p3 = listaPokes[1];
-            var p4 = listaPokes[17];
+            var p1 = listaPokes[numRandomLista()];
+            var p2 = listaPokes[numRandomLista()];
+            var p3 = listaPokes[numRandomLista()];
+            var p4 = listaPokes[numRandomLista()];
 
-            if (p1.types.Count() > 1)
+            if (p1.types.Count() <= 1)
             {
-                p1 = listaPokes[5];
+                p1 = listaPokes.FirstOrDefault(x => x.types.Count() == 2);
             }
-            else if (p2.types.Count() > 1)
+            if (p2.types.Count() > 1 || p2.name == p1.name || p2.name == p3.name || p2.name == p4.name)
             {
-                p1 = listaPokes[15];
+                p2 = listaPokes.FirstOrDefault(x => x.types.Count() <2 && x.name != p1.name && x.name != p2.name && x.name != p3.name && x.name != p4.name);
             }
-            else if(p3.types.Count() > 1)
+            if (p3.types.Count() > 1 || p3.name == p1.name || p3.name == p2.name || p3.name == p4.name)
             {
-                p1 = listaPokes[20];
+                p3 = listaPokes.FirstOrDefault(x => x.types.Count() < 2 && x.name != p1.name && x.name != p2.name && x.name != p3.name &&  x.name != p4.name);
+            }
+            if (p4.types.Count() > 1 || p4.name == p1.name || p4.name == p3.name || p4.name == p2.name)
+            {
+                p4 = listaPokes.FirstOrDefault(x => x.types.Count() < 2 && x.name != p1.name && x.name != p2.name && x.name != p3.name && x.name != p4.name);
             }
 
-            if (p1.types.Count() == 2)
-            {
-                respuestaCorrecta = p1.name;
-            } 
-            else if (p2.types.Count() == 2)
-            {
-                respuestaCorrecta = p2.name;
-            }
-            else if(p3.types.Count() == 2)
-            {
-                respuestaCorrecta = p3.name;
-            }
-            else
-            {
-                respuestaCorrecta = p4.name;
-            }
+            respuestaCorrecta = p1.name;
 
             RP1 = p1.name;
             RP2 = p4.name;
