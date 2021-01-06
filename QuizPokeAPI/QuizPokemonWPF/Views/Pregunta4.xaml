@@ -47,7 +47,7 @@
                 <StackPanel  Margin="40,25" >
                   
                     <Label FontSize="20" FontWeight="Bold">PREGUNTA 4.</Label>
-                    <TextBlock FontSize="20" Height="50" TextWrapping="Wrap">¿Qué pokemon tiene el movimiento <TextBlock Text="{Binding TextoPregunta}"></TextBlock>?</TextBlock>
+                    <TextBlock FontSize="20" Height="50" TextWrapping="Wrap">¿Qué pokemon puede aprender el movimiento <TextBlock Text="{Binding TextoPregunta}"></TextBlock>?</TextBlock>
                    
                  </StackPanel>
                 

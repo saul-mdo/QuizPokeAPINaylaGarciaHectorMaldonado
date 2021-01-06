@@ -69,8 +69,8 @@
                             </Style.Triggers>
                         </Style>
                     </UniformGrid.Resources>
-                    <Button Command="{Binding ValidarRespuestaCommand}">Cierto</Button>
-                    <Button Command="{Binding ValidarRespuestaCommand}">Falso</Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}" CommandParameter="Cierto">Cierto</Button>
+                    <Button Command="{Binding ValidarRespuestaCommand}" CommandParameter="Falso">Falso</Button>
                 </UniformGrid>
             </StackPanel>
         </DockPanel>
