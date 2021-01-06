@@ -37,12 +37,9 @@ namespace PokeQuizWeb.Controllers
         }
 
         
-
-        public async Task<IActionResult> Quiz()
+        public IActionResult Quiz()
         {
             QuizViewModel qvm = new QuizViewModel();
-
-            
 
             return View(qvm);
         }
@@ -51,6 +48,14 @@ namespace PokeQuizWeb.Controllers
         public IActionResult Puntaje()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Reiniciar()
+        {
+            QuizViewModel vm = new QuizViewModel();
+            vm.ListaPokemones.Clear();
+            await LlenarListaPokemon();
+            return RedirectToAction("Index");
         }
 
 

@@ -18,7 +18,7 @@ namespace PokeQuizWeb.Models
         public string Imagen { get; set; }
         public string ResElegida { get; set; }
 
-
+        public int Puntaje { get; set; }
 
     }
 }
