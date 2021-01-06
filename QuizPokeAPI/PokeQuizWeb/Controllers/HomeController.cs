@@ -20,11 +20,13 @@ namespace PokeQuizWeb.Controllers
             Factory = clientFactory;
         }
 
+        public List<Pokemon> ListaPoke { get; set; } = new List<Pokemon>();
+
         public async Task<IActionResult> Index()
         {
             try
             {
-              await LlenarListaPokemon();
+             // await LlenarListaPokemon();
 
             }
             catch (Exception ex)
@@ -36,12 +38,18 @@ namespace PokeQuizWeb.Controllers
 
         }
 
-        
-        public IActionResult Quiz()
+       
+        public async Task<IActionResult> Quiz()
         {
-            QuizViewModel qvm = new QuizViewModel();
+            QuizViewModel vm = new QuizViewModel();
+            vm.ListaPokemones = await LlenarListaPokemon();
 
-            return View(qvm);
+           vm.P1.TextoPregunta = vm.ListaPokemones[0].name;
+            vm.P1.Opcion1 = vm.ListaPokemones[7].name;
+            vm.P1.Opcion2 = vm.ListaPokemones[1].name;
+            vm.P1.Opcion3 = vm.ListaPokemones[9].name;
+            vm.P1.OpcionRespuesta = vm.ListaPokemones[6].name;
+            return View(vm);
         }
 
 
@@ -66,10 +74,9 @@ namespace PokeQuizWeb.Controllers
             return idRandom;
         }
 
-        private async Task<Pokemon> LlenarListaPokemon()
+        private async Task<List<Pokemon>> LlenarListaPokemon()
         {
-            QuizViewModel vm = new QuizViewModel();
-            vm.ListaPokemones = new List<Pokemon>();
+
             var i = 0;
             while (i < 20)
             {
@@ -81,26 +88,28 @@ namespace PokeQuizWeb.Controllers
                 {
                     var json = await response.Content.ReadAsStringAsync();
                     var p = JsonConvert.DeserializeObject<Pokemon>(json);
-                    vm.ListaPokemones.Add(p);
+                    ListaPoke.Add(p);
+                   
                     i++;
                 }
             }
 
-            return null;
+
+            return ListaPoke;
 
         }
 
-        private void LLenarPreguntas(QuizViewModel vm)
-        {
-            //pregunta1
-            //vm.P1.TextoPregunta = vm.ListaPokemones[6].types[6].Name;
-            //vm.P1.Opcion1 = vm.ListaPokemones[7].name;
-            //vm.P1.Opcion2 = vm.ListaPokemones[1].name;
-            //vm.P1.Opcion3 = vm.ListaPokemones[9].name;
-            //vm.P1.OpcionRespuesta = vm.ListaPokemones[6].name;
-            ////pregunta2
+        //private void LLenarPreguntas(QuizViewModel vm)
+        //{
+        //    //pregunta1
+        //    //vm.P1.TextoPregunta = vm.ListaPokemones[6].types[0].type.name;
+        //    //vm.P1.Opcion1 = vm.ListaPokemones[7].name;
+        //    //vm.P1.Opcion2 = vm.ListaPokemones[1].name;
+        //    //vm.P1.Opcion3 = vm.ListaPokemones[9].name;
+        //    //vm.P1.OpcionRespuesta = vm.ListaPokemones[6].name;
+        //    ////pregunta2
 
-        }
+        //}
 
     }
 }

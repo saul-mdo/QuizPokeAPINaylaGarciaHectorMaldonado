@@ -10,7 +10,6 @@ namespace PokeQuizWeb.Models
         
         public string TextoPregunta { get; set; }
         public string TextoPregunta2 { get; set; }
-        public string TextoPregunta3 { get; set; }
         public string OpcionRespuesta { get; set; }
         public string Opcion1 { get; set; }
         public string Opcion2 { get; set; }
@@ -18,7 +17,6 @@ namespace PokeQuizWeb.Models
         public string Imagen { get; set; }
         public string ResElegida { get; set; }
 
-        public int Puntaje { get; set; }
 
     }
 }

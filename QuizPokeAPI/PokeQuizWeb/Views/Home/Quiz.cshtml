@@ -15,19 +15,19 @@
     <div>
 
 
-        @*@foreach (var item in Model.ListaPokemones)
+        @foreach (var item in Model.ListaPokemones)
         {
             <p>@item.name</p>
-        }*@
+        }
 
         <form method="post" action="~/Home/Puntaje">
             <div class="pregunta">
-                <p>1. ¿Qué pokemon es tipo @(ViewBag.Texto) ?</p>
+                <p>1. ¿Qué pokemon es tipo @(Model.P1.TextoPregunta) ?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" asp-for="P1.TextoPregunta">@(ViewBag.Opcion1)</label>
-                    <label><input type="radio" value="" name="pregunta1">@(ViewBag.Opcion2)</label>
-                    <label><input type="radio" value="" name="pregunta1">@(ViewBag.Opcion3)</label>
-                    <label><input type="radio" value="" name="pregunta1">@(ViewBag.Opcion4)</label>
+                    <label><input type="radio" value="" asp-for="P1.TextoPregunta">@(Model.P1.Opcion1)</label>
+                    <label><input type="radio" value="" name="pregunta1">@(Model.P1.Opcion2)</label>
+                    <label><input type="radio" value="" name="pregunta1">@(Model.P1.Opcion3)</label>
+                    <label><input type="radio" value="" name="pregunta1">@(Model.P1.OpcionRespuesta)</label>
                 </div>
                 <img src="~/images/1.png">
             </div>
