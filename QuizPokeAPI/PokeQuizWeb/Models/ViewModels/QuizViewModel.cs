@@ -10,7 +10,6 @@ namespace PokeQuizWeb.Models.ViewModels
     public class QuizViewModel
     {
 
-
         //public ObservableCollection<Pregunta> ListaPreguntas { get; set; }
         public List<Pokemon> ListaPokemones { get; set; }
 

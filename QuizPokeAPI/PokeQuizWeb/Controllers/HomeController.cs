@@ -22,26 +22,26 @@ namespace PokeQuizWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
-            QuizViewModel vm = new QuizViewModel();
-            List<Pokemon> ListPoke = new List<Pokemon>();
             try
             {
-               
+
                 //traer lo pokemones
-                var i = 0;
-                while (i < 20)
-                {
-                    var id = IdPokemonRandom();
-                    var nuevo = await GetPokemon(id);
-                    // vm.ListaPokemones = await GetPokemones();
-                    ListPoke.Add(nuevo);
-                    i++;
-                }
+                //var i = 0;
+                //while (i < 20)
+                //{
+                //    var id = IdPokemonRandom();
+                //    vm.ListaPokemones.Add(await GetPokemon(id));
+                //    vm.ListaPokemones = await GetPokemones();
+                //    i++;
+                //}
                 //ViewBag.Texto = vm.ListaPokemones[0].name.ToString();
-                vm.ListaPokemones = ListPoke;
                 //llenar las preguntas
                 //LLenarPreguntas(vm);
 
+
+              await GetPokemon();
+
+               var i = 3;
 
 
             }
@@ -50,7 +50,7 @@ namespace PokeQuizWeb.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(vm);
+            return View();
 
         }
 
@@ -74,34 +74,38 @@ namespace PokeQuizWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(QuizViewModel vm)
-        {
+        //public IActionResult Index(QuizViewModel vm)
+        //{
             
-            try
-            {
+        //    try
+        //    {
 
-                //se trae las respuestas
-                //se comparan con las respuesta correcta
-                //se muestran los resultados
-
-
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", ex.Message);
+        //        //se trae las respuestas
+        //        //se comparan con las respuesta correcta
+        //        //se muestran los resultados
 
 
-            }
-
-            return RedirectToAction("Puntaje");
-
-        }
-
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ModelState.AddModelError("", ex.Message);
 
 
-        public IActionResult Quiz()
+        //    }
+
+        //    return RedirectToAction("Puntaje");
+
+        //}
+
+
+
+        public async Task<IActionResult> Quiz()
         {
-            return View();
+            QuizViewModel qvm = new QuizViewModel();
+
+            
+
+            return View(qvm);
         }
 
 
@@ -112,41 +116,47 @@ namespace PokeQuizWeb.Controllers
 
        
 
-        private async Task<Pokemon> GetPokemon(int id)
+        private async Task<Pokemon> GetPokemon()
         {
-           
+            QuizViewModel vm = new QuizViewModel();
+            vm.ListaPokemones = new List<Pokemon>();
+            var id = IdPokemonRandom();
             c = Factory.CreateClient("pokemones");
             var response = await c.GetAsync($"api/v2/pokemon/{id}");
 
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                var Pokemon = JsonConvert.DeserializeObject<Pokemon>(json);
-                return Pokemon;
-
-               
+                var p = JsonConvert.DeserializeObject<Pokemon>(json);
+                // var p = JsonConvert.DeserializeObject<Pokemon>(json);
+                vm.ListaPokemones.Add(p);
+                //return x;
+                return p;
             }
-
-            return null;
-        }
-
-        private async Task<List<Pokemon>> GetPokemones()
-        {
-
-            c = Factory.CreateClient("pokemones");
-            var response = await c.GetAsync("api/v2/pokemon/?limit=20&offset=20");
-
-            if (response.IsSuccessStatusCode)
+            else
             {
-                var json = await response.Content.ReadAsStringAsync();
-                var Pokemons = JsonConvert.DeserializeObject<List<Pokemon>>(json);
-                return Pokemons;
-
-
+                return null;
             }
 
-            return null;
         }
+
+        //private async Task<List<Pokemon>> GetPokemones()
+        //{
+
+        //    c = Factory.CreateClient("pokemones");
+        //    var response = await c.GetAsync("api/v2/pokemon/?limit=20&offset=20");
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var json = await response.Content.ReadAsStringAsync();
+        //        var Pokemons = JsonConvert.DeserializeObject<List<Pokemon>>(json);
+        //        return Pokemons;
+
+
+        //    }
+
+        //    return null;
+        //}
 
 
 
