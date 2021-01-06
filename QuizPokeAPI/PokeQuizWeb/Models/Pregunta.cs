@@ -7,8 +7,10 @@ namespace PokeQuizWeb.Models
 {
     public class Pregunta
     {
-        //public List<Pokemon> ListaPokemones { get; set; }
+        
         public string TextoPregunta { get; set; }
+        public string TextoPregunta2 { get; set; }
+        public string TextoPregunta3 { get; set; }
         public string OpcionRespuesta { get; set; }
         public string Opcion1 { get; set; }
         public string Opcion2 { get; set; }

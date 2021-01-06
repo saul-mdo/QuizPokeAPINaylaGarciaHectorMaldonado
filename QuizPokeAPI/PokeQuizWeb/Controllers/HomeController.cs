@@ -15,57 +15,95 @@ namespace PokeQuizWeb.Controllers
     {
         public IHttpClientFactory Factory { get; set; }
         HttpClient c;
-
         public HomeController(IHttpClientFactory clientFactory)
         {
             Factory = clientFactory;
         }
 
-        public List<Pokemon> ListaPokemones { get; set; }
         public async Task<IActionResult> Index()
         {
             QuizViewModel vm = new QuizViewModel();
-
-
+            List<Pokemon> ListPoke = new List<Pokemon>();
             try
             {
-               // var i = 0;
-                //while (i < 20)
-                //{
-                    Random r = new Random();
-                    int idRandom = r.Next(1, 898);
-                    var p = await GetPokemon(idRandom);
-                    ListaPokemones.Add(p);
-              
-                //  i++;
-                //}
+               
+                //traer lo pokemones
+                var i = 0;
+                while (i < 20)
+                {
+                    var id = IdPokemonRandom();
+                    var nuevo = await GetPokemon(id);
+                    // vm.ListaPokemones = await GetPokemones();
+                    ListPoke.Add(nuevo);
+                    i++;
+                }
+                //ViewBag.Texto = vm.ListaPokemones[0].name.ToString();
+                vm.ListaPokemones = ListPoke;
+                //llenar las preguntas
+                //LLenarPreguntas(vm);
 
-                //ListaPokemones = await GetPokemons();
-                //PREGUNTA 1
-                vm.P1.TextoPregunta = ListaPokemones[0].types[0].Name;
-                vm.P1.OpcionRespuesta = ListaPokemones[0].name;
-                vm.P1.Opcion1 = ListaPokemones[0].name;
-                vm.P1.Opcion2 = ListaPokemones[0].name;
-                vm.P1.Opcion3 = ListaPokemones[0].name;
 
-                
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return View(vm);
+
+        }
+
+        private void LLenarPreguntas(QuizViewModel vm)
+        {
+            //pregunta1
+            //vm.P1.TextoPregunta = vm.ListaPokemones[6].types[6].Name;
+            //vm.P1.Opcion1 = vm.ListaPokemones[7].name;
+            //vm.P1.Opcion2 = vm.ListaPokemones[1].name;
+            //vm.P1.Opcion3 = vm.ListaPokemones[9].name;
+            //vm.P1.OpcionRespuesta = vm.ListaPokemones[6].name;
+            ////pregunta2
+
+        }
+
+        public int IdPokemonRandom()
+        {
+            Random r = new Random();
+            int idRandom = r.Next(1, 898);
+            return idRandom;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(QuizViewModel vm)
+        {
+            
+            try
+            {
+
+                //se trae las respuestas
+                //se comparan con las respuesta correcta
+                //se muestran los resultados
+
 
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
 
+
             }
 
-
-            return View(vm);
+            return RedirectToAction("Puntaje");
 
         }
-     
-  
-    
 
-      
+
+
+        public IActionResult Quiz()
+        {
+            return View();
+        }
+
 
         public IActionResult Puntaje()
         {
@@ -87,6 +125,24 @@ namespace PokeQuizWeb.Controllers
                 return Pokemon;
 
                
+            }
+
+            return null;
+        }
+
+        private async Task<List<Pokemon>> GetPokemones()
+        {
+
+            c = Factory.CreateClient("pokemones");
+            var response = await c.GetAsync("api/v2/pokemon/?limit=20&offset=20");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var Pokemons = JsonConvert.DeserializeObject<List<Pokemon>>(json);
+                return Pokemons;
+
+
             }
 
             return null;
