@@ -15,113 +15,113 @@
     <div>
 
 
-        @foreach (var item in Model.ListaPokemones)
+        @*@foreach (var item in Model.ListaPokemones)
         {
             <p>@item.name</p>
-        }
+        }*@
 
         <form method="post" action="~/Home/Puntaje">
             <div class="pregunta">
                 <p>1. ¿Qué pokemon es tipo @(Model.P1.TextoPregunta) ?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" asp-for="P1.TextoPregunta">@(Model.P1.Opcion1)</label>
-                    <label><input type="radio" value="" name="pregunta1">@(Model.P1.Opcion2)</label>
-                    <label><input type="radio" value="" name="pregunta1">@(Model.P1.Opcion3)</label>
-                    <label><input type="radio" value="" name="pregunta1">@(Model.P1.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P1.Opcion1)" name="pregunta1">@(Model.P1.Opcion1)</label>
+                    <label><input type="radio" value="@(Model.P1.Opcion2)" name="pregunta1">@(Model.P1.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P1.Opcion3)" name="pregunta1">@(Model.P1.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P1.OpcionRespuesta)" name="pregunta1">@(Model.P1.OpcionRespuesta)</label>
                 </div>
                 <img src="~/images/1.png">
             </div>
             <div class="pregunta">
-                <p>2. ¿Que pokemon posee la habilidad ?</p>
+                <p>2. ¿Que pokemon posee la habilidad @(Model.P2.TextoPregunta)?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta2"> </label>
-                    <label><input type="radio" value="" name="pregunta2"></label>
-                    <label><input type="radio" value="" name="pregunta2"></label>
-                    <label><input type="radio" value="" name="pregunta2"></label>
+                    <label><input type="radio" value="@(Model.P2.Opcion1)" name="pregunta2"> @(Model.P2.Opcion1)</label>
+                    <label><input type="radio" value="@(Model.P2.OpcionRespuesta)" name="pregunta2">@(Model.P2.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P2.Opcion3)" name="pregunta2">@(Model.P2.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P2.Opcion2)" name="pregunta2">@(Model.P2.Opcion2)</label>
                 </div>
                 <img src="~/images/2.png">
             </div>
             <div class="pregunta">
-                <p>3. ¿Cual es el nombre de este pokemon? (IMAGEN)</p>
+                <p>3. ¿Cual es el nombre de este pokemon? <img  height="50"src="@Model.P3.Imagen)"/></p>
                 <div class="opciones">
-                    <label><input type="radio" name="pregunta3"></label>
-                    <label><input type="radio" value="" name="pregunta3">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta3">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta3">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P3.OpcionRespuesta)" name="pregunta3">@(Model.P3.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P3.Opcion2)" name="pregunta3">@(Model.P3.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P3.Opcion3)" name="pregunta3">@(Model.P3.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P3.Opcion1)" name="pregunta3">@(Model.P3.Opcion1)</label>
                 </div>
                 <img src="~/images/3.png">
             </div>
             <div class="pregunta">
-                <p>4. ¿Que pokemon tiene el movimiento ___?</p>
+                <p>4. ¿Que pokemon tiene el movimiento @(Model.P4.TextoPregunta)?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta4">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta4">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta4">Opcion 3</label>
+                    <label><input type="radio" value="@(Model.P4.Opcion2)" name="pregunta4">@(Model.P4.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P4.Opcion3)" name="pregunta4">@(Model.P4.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P4.Opcion1)" name="pregunta4">@(Model.P4.Opcion1)</label>
                     <label>
-                        <input type="radio" value="" name="pregunta4">
-                        Opcion 4
+                        <input type="radio" value="@(Model.P4.OpcionRespuesta)" name="pregunta4">
+                        @(Model.P4.OpcionRespuesta)
                     </label>
                 </div>
                 <img src="~/images/4.png">
             </div>
             <div class="pregunta">
-                <p>5. El pokemon ___ puede aprender el movimiento ___.<br /> ¿Cierto o falso?</p>
+                <p>5. El pokemon @(Model.P5.TextoPregunta) puede aprender el movimiento @(Model.P5.TextoPregunta2).<br /> ¿Cierto o falso?</p>
                 <div class="opciones">
 
-                    <label><input type="radio" value="" name="pregunta5">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta5">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta5">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta5">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P5.Opcion2)" name="pregunta5">@(Model.P5.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P5.Opcion1)" name="pregunta5">@(Model.P5.Opcion1)</label>
+                    <label><input type="radio" value="@(Model.P5.OpcionRespuesta)" name="pregunta5">@(Model.P5.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P5.Opcion3)" name="pregunta5">@(Model.P5.Opcion3)</label>
                 </div>
                 <img src="~/images/5.png">
             </div>
             <div class="pregunta">
                 <p>6. ¿Que pokemon es más alto?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta6">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta6">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta6">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta6">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P6.Opcion1)" name="pregunta6">@(Model.P6.Opcion1)</label>
+                    <label><input type="radio" value="@(Model.P6.Opcion3)" name="pregunta6">@(Model.P6.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P6.Opcion2)" name="pregunta6">@(Model.P6.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P6.OpcionRespuesta)" name="pregunta6">@(Model.P6.OpcionRespuesta)</label>
                 </div>
                 <img src="~/images/6.png">
             </div>
             <div class="pregunta">
                 <p>7. ¿Que pokemon es más pesado?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta7">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta7">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta7">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta7">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P7.Opcion3)" name="pregunta7">@(Model.P7.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P7.Opcion2)" name="pregunta7">@(Model.P7.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P7.OpcionRespuesta)" name="pregunta7">@(Model.P7.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P7.Opcion1)" name="pregunta7">@(Model.P7.Opcion1)</label>
                 </div>
                 <img src="~/images/7.png">
             </div>
             <div class="pregunta">
-                <p>8. ¿Que tipo es este pokemon? (IMAGEN)</p>
+                <p>8. ¿Que tipo es este pokemon?<img height="50" src="@Model.P8.Imagen)" /></p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta8">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta8">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta8">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta8">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P8.Opcion3)" name="pregunta8">@(Model.P8.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P8.OpcionRespuesta)" name="pregunta8">@(Model.P8.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P8.Opcion2)" name="pregunta8">@(Model.P8.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P8.Opcion1)" name="pregunta8">@(Model.P8.Opcion1)</label>
                 </div>
                 <img src="~/images/8.png">
             </div>
             <div class="pregunta">
-                <p>9.El pokemon ____ es tipo ____. ¿Cierto o falso?</p>
+                <p>9.El pokemon @(Model.P9.TextoPregunta) es tipo @(Model.P9.TextoPregunta2). ¿Cierto o falso?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta9">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta9">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta9">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta9">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P9.Opcion2)" name="pregunta9">@(Model.P9.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P9.OpcionRespuesta)" name="pregunta9">@(Model.P9.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P9.Opcion3)" name="pregunta9">@(Model.P9.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P9.Opcion1)" name="pregunta9">@(Model.P9.Opcion1)</label>
                 </div>
                 <img src="~/images/9.png">
             </div>
             <div class="pregunta">
                 <p>10. ¿Qué pokemon tiene dos tipos?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="" name="pregunta10">Opcion 1</label>
-                    <label><input type="radio" value="" name="pregunta10">Opcion 2</label>
-                    <label><input type="radio" value="" name="pregunta10">Opcion 3</label>
-                    <label><input type="radio" value="" name="pregunta10">Opcion 4</label>
+                    <label><input type="radio" value="@(Model.P10.Opcion2)" name="pregunta10">@(Model.P10.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P10.Opcion3)" name="pregunta10">@(Model.P10.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P10.OpcionRespuesta)" name="pregunta10">@(Model.P10.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P10.Opcion1)" name="pregunta10">@(Model.P10.Opcion1)</label>
                 </div>
                 <img src="~/images/10.png">
             </div>
