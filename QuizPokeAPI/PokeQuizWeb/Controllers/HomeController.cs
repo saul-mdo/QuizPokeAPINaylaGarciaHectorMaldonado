@@ -27,47 +27,91 @@ namespace PokeQuizWeb.Controllers
             return View();
         }
 
-       
+
         public async Task<IActionResult> Quiz()
         {
             QuizViewModel vm = new QuizViewModel();
             vm.ListaPokemones = await LlenarListaPokemon();
-            
+
             //LLENAR LAS PREGUNTAS
             //Pregunta 1
-           vm.P1.TextoPregunta = vm.ListaPokemones[8].types[0].type.name;
+            vm.P1.TextoPregunta = vm.ListaPokemones[8].types[0].type.name;
             vm.P1.Opcion1 = vm.ListaPokemones[7].name;
             vm.P1.Opcion2 = vm.ListaPokemones[1].name;
             vm.P1.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P1.OpcionRespuesta = vm.ListaPokemones[8].name; 
+            vm.P1.OpcionRespuesta = vm.ListaPokemones[8].name;
             //Pregunta 2
             vm.P2.TextoPregunta = vm.ListaPokemones[6].abilities[0].ability.name;
-            vm.P2.Opcion1 = vm.ListaPokemones[9].name;
-            vm.P2.Opcion2 = vm.ListaPokemones[1].name;
+            vm.P2.Opcion1 = vm.ListaPokemones[10].name;
+            vm.P2.Opcion2 = vm.ListaPokemones[2].name;
             vm.P2.Opcion3 = vm.ListaPokemones[0].name;
             vm.P2.OpcionRespuesta = vm.ListaPokemones[6].name;
 
-            //Pregunta 3 //PENDIENTE
+            //Pregunta 3
             vm.P3.TextoPregunta = vm.ListaPokemones[0].name;
             vm.P3.ImagenP3 = vm.ListaPokemones[0].sprites.front_default;
             vm.P3.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P3.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P3.Opcion3 = vm.ListaPokemones[9].name;
+            vm.P3.Opcion2 = vm.ListaPokemones[13].name;
+            vm.P3.Opcion3 = vm.ListaPokemones[18].name;
             vm.P3.OpcionRespuesta = vm.ListaPokemones[0].name;
 
             //pregunta 4
-            vm.P4.TextoPregunta = vm.ListaPokemones[15].moves[0].move.name;
-            vm.P4.Opcion1 = vm.ListaPokemones[17].name;
-            vm.P4.Opcion2 = vm.ListaPokemones[4].name;
-            vm.P4.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P4.OpcionRespuesta = vm.ListaPokemones[15].name;
+            var pk1 = vm.ListaPokemones[0];
+            var pk2 = vm.ListaPokemones[4];
+            var pk3 = vm.ListaPokemones[3];
+            var pk4 = vm.ListaPokemones[11];
+
+            if (pk1.moves.Count() <= 0)
+            {
+                pk1 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name!=pk1.name && x.name != pk2.name && x.name != pk3.name && x.name != pk4.name);
+            }
+            if (pk2.moves.Count() <= 0)
+            {
+                pk2 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != pk2.name && x.name != pk1.name && x.name != pk3.name && x.name != pk4.name);
+            }
+            if (pk3.moves.Count() <= 0)
+            {
+                pk3 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != pk3.name && x.name != pk2.name && x.name != pk1.name && x.name != pk4.name);
+            }
+            if (pk4.moves.Count() <= 0)
+            {
+                pk4 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != pk4.name && x.name != pk2.name && x.name != pk3.name && x.name != pk1.name);
+            }
+
+            vm.P4.TextoPregunta = pk1.moves[0].move.name;
+            vm.P4.Opcion1 = pk3.name;
+            vm.P4.Opcion2 = pk2.name;
+            vm.P4.Opcion3 = pk4.name;
+            vm.P4.OpcionRespuesta = pk1.name;
             //pregunta 5
-            vm.P5.TextoPregunta = vm.ListaPokemones[10].name;
-            vm.P5.TextoPregunta2 = vm.ListaPokemones[6].moves[10].move.name;
-            vm.P5.Opcion1 = vm.ListaPokemones[19].name;
-            vm.P5.Opcion2 = vm.ListaPokemones[11].name;
-            vm.P5.Opcion3 = vm.ListaPokemones[5].name;
-            vm.P5.OpcionRespuesta = vm.ListaPokemones[10].name;
+            var poke1 = vm.ListaPokemones[10];
+            var poke2 = vm.ListaPokemones[14];
+            var poke3 = vm.ListaPokemones[13];
+            var poke4 = vm.ListaPokemones[1];
+
+            if (poke1.moves.Count() <= 0)
+            {
+                poke1 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != poke1.name && x.name != poke2.name && x.name != poke3.name && x.name != poke4.name);
+            }
+            if (poke2.moves.Count() <= 0)
+            {
+                poke2 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != poke2.name && x.name != poke1.name && x.name != poke3.name && x.name != poke4.name);
+            }
+            if (pk3.moves.Count() <= 0)
+            {
+                pk3 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != poke3.name && x.name != poke2.name && x.name != poke1.name && x.name != poke4.name);
+            }
+            if (pk4.moves.Count() <= 0)
+            {
+                pk4 = vm.ListaPokemones.FirstOrDefault(x => x.moves.Count() > 0 && x.name != poke4.name && x.name != poke2.name && x.name != poke3.name && x.name != poke1.name);
+            }
+
+            vm.P5.TextoPregunta = poke1.name;
+            vm.P5.TextoPregunta2 = poke4.moves[0].move.name;
+            vm.P5.Opcion1 = poke2.name;
+            vm.P5.Opcion2 = poke4.name;
+            vm.P5.Opcion3 = poke3.name;
+            vm.P5.OpcionRespuesta = poke1.name;
 
             //pregunta 6
             var p1 = ListaPoke[5];
@@ -80,8 +124,8 @@ namespace PokeQuizWeb.Controllers
             vm.P6.Opcion3 = p3.name;
             vm.P6.OpcionRespuesta = p4.name;
             //pregunta 7
-            var p17 = ListaPoke[9];
-            var p27 = ListaPoke[1];
+            var p17 = ListaPoke[11];
+            var p27 = ListaPoke[0];
             var p37 = ListaPoke.FirstOrDefault(x => (x.weight > p1.weight) && (x.weight > p2.weight) && (x.weight > p3.weight));
             var p47 = ListaPoke[3];
             vm.P7.Opcion1 = p17.name;
@@ -94,7 +138,7 @@ namespace PokeQuizWeb.Controllers
             vm.P8.ImagenP8 = vm.ListaPokemones[14].sprites.front_default;
             vm.P8.Opcion1 = vm.ListaPokemones[7].types[0].type.name;
             vm.P8.Opcion2 = vm.ListaPokemones[16].types[0].type.name;
-            vm.P8.Opcion3 = vm.ListaPokemones[9].types[0].type.name;
+            vm.P8.Opcion3 = vm.ListaPokemones[12].types[0].type.name;
             vm.P8.OpcionRespuesta = vm.ListaPokemones[14].types[0].type.name;
 
             //pregunta 9
@@ -104,11 +148,34 @@ namespace PokeQuizWeb.Controllers
             vm.P9.OpcionRespuesta = vm.ListaPokemones[7].name;
 
             //pregunta 10
-            vm.P10.TextoPregunta = vm.ListaPokemones[3].name;
-            vm.P10.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P10.Opcion2 = vm.ListaPokemones[18].name;
-            vm.P10.Opcion3 = vm.ListaPokemones[4].name;
-            vm.P10.OpcionRespuesta = vm.ListaPokemones[3].name;
+            var pkmn1 = vm.ListaPokemones[0];
+            var pkmn2 = vm.ListaPokemones[19];
+            var pkmn3 = vm.ListaPokemones[2];
+            var pkmn4 = vm.ListaPokemones[5];
+
+            if (pkmn1.types.Count() > 1)
+            {
+                pkmn1 = vm.ListaPokemones.FirstOrDefault(x => x.types.Count() < 2 && x.name!=pkmn1.name && x.name != pkmn2.name && x.name != pkmn3.name && x.name != pkmn4.name);
+            }
+            if (pkmn2.types.Count() > 1)
+            {
+                pkmn2 = vm.ListaPokemones.FirstOrDefault(x => x.types.Count() < 2 && x.name != pkmn1.name && x.name != pkmn2.name && x.name != pkmn3.name && x.name != pkmn4.name);
+            }
+            if (pkmn3.types.Count() < 2)
+            {
+                pkmn3 = vm.ListaPokemones.FirstOrDefault(x => x.types.Count() >= 2 && x.name != pkmn1.name && x.name != pkmn2.name && x.name != pkmn3.name && x.name != pkmn4.name);
+            }
+            if (pkmn4.types.Count() > 1)
+            {
+                pkmn4 = vm.ListaPokemones.FirstOrDefault(x => x.types.Count() < 2 && x.name != pkmn1.name && x.name != pkmn2.name && x.name != pkmn3.name && x.name != pkmn4.name);
+            }
+
+
+            vm.P10.TextoPregunta = pkmn3.name;
+            vm.P10.Opcion1 = pkmn2.name;
+            vm.P10.Opcion2 = pkmn4.name;
+            vm.P10.Opcion3 = pkmn1.name;
+            vm.P10.OpcionRespuesta = pkmn3.name;
             return View(vm);
         }
 
