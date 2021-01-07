@@ -22,20 +22,9 @@ namespace PokeQuizWeb.Controllers
 
         public List<Pokemon> ListaPoke { get; set; } = new List<Pokemon>();
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            try
-            {
-             // await LlenarListaPokemon();
-
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", ex.Message);
-            }
-
             return View();
-
         }
 
        
@@ -60,11 +49,11 @@ namespace PokeQuizWeb.Controllers
 
             //Pregunta 3 //PENDIENTE
             vm.P3.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P3.Imagen = vm.ListaPokemones[0].sprites.front_default;
+            vm.P3.ImagenP3 = vm.ListaPokemones[0].sprites.front_default;
             vm.P3.Opcion1 = vm.ListaPokemones[7].name;
             vm.P3.Opcion2 = vm.ListaPokemones[1].name;
             vm.P3.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P3.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P3.OpcionRespuesta = vm.ListaPokemones[0].name;
 
             //pregunta 4
             vm.P4.TextoPregunta = vm.ListaPokemones[15].moves[0].move.name;
@@ -102,7 +91,7 @@ namespace PokeQuizWeb.Controllers
 
             //pregunta 8
             vm.P8.TextoPregunta = vm.ListaPokemones[14].name;
-            vm.P8.Imagen = vm.ListaPokemones[14].sprites.front_default;
+            vm.P8.ImagenP8 = vm.ListaPokemones[14].sprites.front_default;
             vm.P8.Opcion1 = vm.ListaPokemones[7].types[0].type.name;
             vm.P8.Opcion2 = vm.ListaPokemones[16].types[0].type.name;
             vm.P8.Opcion3 = vm.ListaPokemones[9].types[0].type.name;

@@ -44,7 +44,7 @@
                 <img src="~/images/2.png">
             </div>
             <div class="pregunta">
-                <p>3. ¿Cual es el nombre de este pokemon? <img class="img-chica" height="50"src="@Model.P3.Imagen)"/></p>
+                <p>3. ¿Cual es el nombre de este pokemon? <img class="img-chica" height="50"src="@(Model.P3.ImagenP3)"/></p>
                 <div class="opciones">
                     <input hidden type="text" value="@(Model.P3.OpcionRespuesta)" name="res3" />
                     <label><input type="radio" value="@(Model.P3.OpcionRespuesta)" name="pregunta3">@(Model.P3.OpcionRespuesta)</label>
@@ -104,7 +104,7 @@
                 <img src="~/images/7.png">
             </div>
             <div class="pregunta">
-                <p>8. ¿Que tipo es este pokemon?<img class="img-chica" src="@Model.P8.Imagen)" /></p>
+                <p>8. ¿Que tipo es este pokemon?<img class="img-chica" src="@(Model.P8.ImagenP8)" /></p>
                 <div class="opciones">
                     <input hidden type="text" value="@(Model.P8.OpcionRespuesta)" name="res8" />
                     <label><input type="radio" value="@(Model.P8.Opcion3)" name="pregunta8">@(Model.P8.Opcion3)</label>

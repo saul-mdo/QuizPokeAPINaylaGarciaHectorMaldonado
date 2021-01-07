@@ -14,7 +14,8 @@ namespace PokeQuizWeb.Models
         public string Opcion1 { get; set; }
         public string Opcion2 { get; set; }
         public string Opcion3 { get; set; }
-        public string Imagen { get; set; }
+        public string ImagenP3 { get; set; }
+        public string ImagenP8 { get; set; }
         public string ResElegida { get; set; }
 
 
