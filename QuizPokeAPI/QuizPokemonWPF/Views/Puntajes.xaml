@@ -31,10 +31,10 @@
         <Image DockPanel.Dock="Bottom" Source="/images/portada.png" Width="300"></Image>
         <StackPanel>
             <StackPanel HorizontalAlignment="Center" Background="DarkBlue" Height="90" Width="250">
-                <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="White">TU POKEPUNTAJE:</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="White">TU PUNTAJE:</TextBlock>
                 <TextBlock HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" Foreground="White" Text="{Binding Puntaje}"></TextBlock>
             </StackPanel>
-            <Button Command="{Binding ReiniciarQuizCommand}"  Width="200" Height="40" Margin="0,10"  >
+            <Button Command="{Binding ReiniciarQuizCommand}"  Width="200" Background="Red"  FontWeight="Bold" Foreground="White" FontSize="15" Height="40" Margin="0,10"  >
                 Intentar de nuevo
             </Button>
         </StackPanel>
