@@ -42,7 +42,7 @@
                 <img src="~/images/2.png">
             </div>
             <div class="pregunta">
-                <p>3. ¿Cual es el nombre de este pokemon? <img  height="50"src="@Model.P3.Imagen)"/></p>
+                <p>3. ¿Cual es el nombre de este pokemon? <img class="img-chica" height="50"src="@Model.P3.Imagen)"/></p>
                 <div class="opciones">
                     <label><input type="radio" value="@(Model.P3.OpcionRespuesta)" name="pregunta3">@(Model.P3.OpcionRespuesta)</label>
                     <label><input type="radio" value="@(Model.P3.Opcion2)" name="pregunta3">@(Model.P3.Opcion2)</label>
@@ -68,10 +68,10 @@
                 <p>5. El pokemon @(Model.P5.TextoPregunta) puede aprender el movimiento @(Model.P5.TextoPregunta2).<br /> ¿Cierto o falso?</p>
                 <div class="opciones">
 
-                    <label><input type="radio" value="@(Model.P5.Opcion2)" name="pregunta5">@(Model.P5.Opcion2)</label>
-                    <label><input type="radio" value="@(Model.P5.Opcion1)" name="pregunta5">@(Model.P5.Opcion1)</label>
-                    <label><input type="radio" value="@(Model.P5.OpcionRespuesta)" name="pregunta5">@(Model.P5.OpcionRespuesta)</label>
-                    <label><input type="radio" value="@(Model.P5.Opcion3)" name="pregunta5">@(Model.P5.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P5.Opcion1)" name="pregunta5">Falso</label>
+                    @*<label><input type="radio" value="@(Model.P5.Opcion1)" name="pregunta5">@(Model.P5.Opcion1)</label>*@
+                    <label><input type="radio" value="@(Model.P5.OpcionRespuesta)" name="pregunta5">Cierto</label>
+                    @*<label><input type="radio" value="@(Model.P5.Opcion3)" name="pregunta5">@(Model.P5.Opcion3)</label>*@
                 </div>
                 <img src="~/images/5.png">
             </div>
@@ -96,7 +96,7 @@
                 <img src="~/images/7.png">
             </div>
             <div class="pregunta">
-                <p>8. ¿Que tipo es este pokemon?<img height="50" src="@Model.P8.Imagen)" /></p>
+                <p>8. ¿Que tipo es este pokemon?<img class="img-chica" src="@Model.P8.Imagen)" /></p>
                 <div class="opciones">
                     <label><input type="radio" value="@(Model.P8.Opcion3)" name="pregunta8">@(Model.P8.Opcion3)</label>
                     <label><input type="radio" value="@(Model.P8.OpcionRespuesta)" name="pregunta8">@(Model.P8.OpcionRespuesta)</label>
@@ -108,10 +108,10 @@
             <div class="pregunta">
                 <p>9.El pokemon @(Model.P9.TextoPregunta) es tipo @(Model.P9.TextoPregunta2). ¿Cierto o falso?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="@(Model.P9.Opcion2)" name="pregunta9">@(Model.P9.Opcion2)</label>
-                    <label><input type="radio" value="@(Model.P9.OpcionRespuesta)" name="pregunta9">@(Model.P9.OpcionRespuesta)</label>
-                    <label><input type="radio" value="@(Model.P9.Opcion3)" name="pregunta9">@(Model.P9.Opcion3)</label>
-                    <label><input type="radio" value="@(Model.P9.Opcion1)" name="pregunta9">@(Model.P9.Opcion1)</label>
+                    @*<label><input type="radio" value="@(Model.P9.Opcion2)" name="pregunta9">@(Model.P9.Opcion2)</label>*@
+                    <label><input type="radio" value="@(Model.P9.OpcionRespuesta)" name="pregunta9">Cierto</label>
+                    @*<label><input type="radio" value="@(Model.P9.Opcion3)" name="pregunta9">@(Model.P9.Opcion3)</label>*@
+                    <label><input type="radio" value="@(Model.P9.Opcion1)" name="pregunta9">Falso</label>
                 </div>
                 <img src="~/images/9.png">
             </div>

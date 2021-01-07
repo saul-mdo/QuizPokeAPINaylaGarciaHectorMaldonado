@@ -45,44 +45,46 @@ namespace PokeQuizWeb.Controllers
             vm.ListaPokemones = await LlenarListaPokemon();
             //LLENAR LAS PREGUNTAS
             //Pregunta 1
-           vm.P1.TextoPregunta = vm.ListaPokemones[0].name;
+           vm.P1.TextoPregunta = vm.ListaPokemones[8].types[0].type.name;
             vm.P1.Opcion1 = vm.ListaPokemones[7].name;
             vm.P1.Opcion2 = vm.ListaPokemones[1].name;
             vm.P1.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P1.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P1.OpcionRespuesta = vm.ListaPokemones[8].name; //res
             //Pregunta 2
-            vm.P2.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P2.Opcion1 = vm.ListaPokemones[7].name;
+            vm.P2.TextoPregunta = vm.ListaPokemones[6].abilities[0].ability.name;
+            vm.P2.Opcion1 = vm.ListaPokemones[9].name;
             vm.P2.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P2.Opcion3 = vm.ListaPokemones[9].name;
+            vm.P2.Opcion3 = vm.ListaPokemones[0].name;
             vm.P2.OpcionRespuesta = vm.ListaPokemones[6].name;
 
-            //Pregunta 3
+            //Pregunta 3 //PENDIENTE
             vm.P3.TextoPregunta = vm.ListaPokemones[0].name;
+            vm.P3.Imagen = vm.ListaPokemones[0].sprites.front_default;
             vm.P3.Opcion1 = vm.ListaPokemones[7].name;
             vm.P3.Opcion2 = vm.ListaPokemones[1].name;
             vm.P3.Opcion3 = vm.ListaPokemones[9].name;
             vm.P3.OpcionRespuesta = vm.ListaPokemones[6].name;
 
             //pregunta 4
-            vm.P4.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P4.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P4.Opcion2 = vm.ListaPokemones[1].name;
+            vm.P4.TextoPregunta = vm.ListaPokemones[15].moves[0].move.name;
+            vm.P4.Opcion1 = vm.ListaPokemones[17].name;
+            vm.P4.Opcion2 = vm.ListaPokemones[4].name;
             vm.P4.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P4.OpcionRespuesta = vm.ListaPokemones[6].name;
-            //pregunta 5
-            vm.P5.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P5.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P5.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P5.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P5.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P4.OpcionRespuesta = vm.ListaPokemones[15].name;
+            //pregunta 5 //PENDIENTE
+            vm.P5.TextoPregunta = vm.ListaPokemones[10].name;
+            vm.P5.TextoPregunta2 = vm.ListaPokemones[10].name;
+            vm.P5.Opcion1 = vm.ListaPokemones[19].name;
+            vm.P5.Opcion2 = vm.ListaPokemones[11].name;
+            vm.P5.Opcion3 = vm.ListaPokemones[5].name;
+            vm.P5.OpcionRespuesta = vm.ListaPokemones[10].name;
 
             //pregunta 6
-            vm.P6.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P6.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P6.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P6.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P6.OpcionRespuesta = vm.ListaPokemones[6].name;
+         
+            vm.P6.Opcion1 = vm.ListaPokemones[14].name;
+            vm.P6.Opcion2 = vm.ListaPokemones[9].name;
+            vm.P6.Opcion3 = vm.ListaPokemones[7].name;
+            vm.P6.OpcionRespuesta = vm.ListaPokemones[3].name;
             //pregunta 7
             vm.P7.TextoPregunta = vm.ListaPokemones[0].name;
             vm.P7.Opcion1 = vm.ListaPokemones[7].name;
@@ -160,17 +162,7 @@ namespace PokeQuizWeb.Controllers
 
         }
 
-        //private void LLenarPreguntas(QuizViewModel vm)
-        //{
-        //    //pregunta1
-        //    //vm.P1.TextoPregunta = vm.ListaPokemones[6].types[0].type.name;
-        //    //vm.P1.Opcion1 = vm.ListaPokemones[7].name;
-        //    //vm.P1.Opcion2 = vm.ListaPokemones[1].name;
-        //    //vm.P1.Opcion3 = vm.ListaPokemones[9].name;
-        //    //vm.P1.OpcionRespuesta = vm.ListaPokemones[6].name;
-        //    ////pregunta2
-
-        //}
+     
 
     }
 }
