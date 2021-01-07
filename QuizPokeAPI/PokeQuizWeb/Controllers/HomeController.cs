@@ -87,34 +87,48 @@ namespace PokeQuizWeb.Controllers
             vm.P6.OpcionRespuesta = vm.ListaPokemones[3].name;
             //pregunta 7
             vm.P7.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P7.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P7.Opcion2 = vm.ListaPokemones[1].name;
+          
+            vm.P7.Opcion1 = vm.ListaPokemones[3].name;
+            vm.P7.Opcion2 = vm.ListaPokemones[8].name;
             vm.P7.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P7.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P7.OpcionRespuesta = vm.ListaPokemones[17].name;
 
             //pregunta 8
-            vm.P8.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P8.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P8.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P8.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P8.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P8.TextoPregunta = vm.ListaPokemones[14].name;
+            vm.P8.Imagen = vm.ListaPokemones[14].sprites.front_default;
+            vm.P8.Opcion1 = vm.ListaPokemones[7].types[0].type.name;
+            vm.P8.Opcion2 = vm.ListaPokemones[16].types[0].type.name;
+            vm.P8.Opcion3 = vm.ListaPokemones[9].types[0].type.name;
+            vm.P8.OpcionRespuesta = vm.ListaPokemones[14].types[0].type.name;
 
             //pregunta 9
-            vm.P9.TextoPregunta = vm.ListaPokemones[0].name;
-            vm.P9.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P9.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P9.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P9.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P9.TextoPregunta = vm.ListaPokemones[7].name;
+            vm.P9.TextoPregunta2 = vm.ListaPokemones[7].types[0].type.name;
+            vm.P9.Opcion1 = vm.ListaPokemones[2].name;
+            //vm.P9.Opcion2 = vm.ListaPokemones[17].name;
+            //vm.P9.Opcion3 = vm.ListaPokemones[3].name;
+            vm.P9.OpcionRespuesta = vm.ListaPokemones[7].name;
 
             //pregunta 10
-            vm.P10.TextoPregunta = vm.ListaPokemones[0].name;
+            vm.P10.TextoPregunta = vm.ListaPokemones[3].name;
             vm.P10.Opcion1 = vm.ListaPokemones[7].name;
-            vm.P10.Opcion2 = vm.ListaPokemones[1].name;
-            vm.P10.Opcion3 = vm.ListaPokemones[9].name;
-            vm.P10.OpcionRespuesta = vm.ListaPokemones[6].name;
+            vm.P10.Opcion2 = vm.ListaPokemones[18].name;
+            vm.P10.Opcion3 = vm.ListaPokemones[4].name;
+            vm.P10.OpcionRespuesta = vm.ListaPokemones[3].name;
             return View(vm);
         }
 
+        [HttpPost]
+        public IActionResult Quiz(QuizViewModel vm, string pregunta1, string pregunta2, string pregunta3,
+            string pregunta4, string pregunta5, string pregunta6, string pregunta7, string pregunta8, string pregunta9, string pregunta10)
+        {
+           
+
+            var otra = pregunta1;
+
+
+            return RedirectToAction("Puntaje");
+        }
 
         public IActionResult Puntaje()
         {

@@ -20,14 +20,14 @@
             <p>@item.name</p>
         }*@
 
-        <form method="post" action="~/Home/Puntaje">
+        <form method="post" action="~/Home/Quiz">
             <div class="pregunta">
                 <p>1. ¿Qué pokemon es tipo @(Model.P1.TextoPregunta) ?</p>
                 <div class="opciones">
-                    <label><input type="radio" value="@(Model.P1.Opcion1)" name="pregunta1">@(Model.P1.Opcion1)</label>
-                    <label><input type="radio" value="@(Model.P1.Opcion2)" name="pregunta1">@(Model.P1.Opcion2)</label>
-                    <label><input type="radio" value="@(Model.P1.Opcion3)" name="pregunta1">@(Model.P1.Opcion3)</label>
-                    <label><input type="radio" value="@(Model.P1.OpcionRespuesta)" name="pregunta1">@(Model.P1.OpcionRespuesta)</label>
+                    <label><input type="radio" value="@(Model.P1.Opcion1)"  name="pregunta1">@(Model.P1.Opcion1)</label>
+                    <label><input type="radio" value="@(Model.P1.Opcion2)"  name="pregunta1">@(Model.P1.Opcion2)</label>
+                    <label><input type="radio" value="@(Model.P1.Opcion3)"   name="pregunta1">@(Model.P1.Opcion3)</label>
+                    <label><input type="radio" value="@(Model.P1.OpcionRespuesta)"   name="pregunta1">@(Model.P1.OpcionRespuesta)</label>
                 </div>
                 <img src="~/images/1.png">
             </div>
@@ -77,8 +77,8 @@
             </div>
             <div class="pregunta">
                 <p>6. ¿Que pokemon es más alto?</p>
-                <div class="opciones">
-                    <label><input type="radio" value="@(Model.P6.Opcion1)" name="pregunta6">@(Model.P6.Opcion1)</label>
+                <div class="opciones" >
+                    <label><input type="radio" value="@(Model.P6.Opcion1)"  name="pregunta6">@(Model.P6.Opcion1)</label>
                     <label><input type="radio" value="@(Model.P6.Opcion3)" name="pregunta6">@(Model.P6.Opcion3)</label>
                     <label><input type="radio" value="@(Model.P6.Opcion2)" name="pregunta6">@(Model.P6.Opcion2)</label>
                     <label><input type="radio" value="@(Model.P6.OpcionRespuesta)" name="pregunta6">@(Model.P6.OpcionRespuesta)</label>
