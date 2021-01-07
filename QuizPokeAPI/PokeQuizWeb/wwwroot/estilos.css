@@ -74,8 +74,12 @@ input[type="submit"] {
 }
 
 .inicio {
-	margin: 80px;
+	margin: 70px;
 }
+.inicio img{
+	margin-top:20px;
+}
+
 
 	.puntaje label, .inicio label {
 		font-size: 50px;
@@ -88,6 +92,7 @@ input[type="submit"] {
 }
 
 .puntaje a, .inicio a {
+	font-weight:bold;
 	display: block;
 	margin: auto;
 	color: white;
@@ -96,9 +101,15 @@ input[type="submit"] {
 	background-color: red;
 	height: 50px;
 	width: 200px;
+
+}
+.inicio a {
+	font-size:35px;
+	height: 60px;
+	width: 250px;
 }
 
-	.puntaje a:hover {
+	.puntaje a:hover, .inicio a:hover {
 		background-color: pink;
 	}
 

@@ -114,20 +114,24 @@ namespace PokeQuizWeb.Controllers
             vm.P5.OpcionRespuesta = poke1.name;
 
             //pregunta 6
-            var p1 = ListaPoke[5];
-            var p2 = ListaPoke[18];
-            var p3 = ListaPoke[2];
-            var p4 = ListaPoke.FirstOrDefault(x => (x.height > p1.height) && (x.height > p2.height) && (x.height > p3.height));
+             var minilista = ListaPoke.OrderBy(x => x.height).Take(4).ToList();
+            var p1 = minilista[0];
+            var p2 = minilista[1];
+            var p3 = minilista[2];
+            var p4 = minilista[3]; //correcta
 
             vm.P6.Opcion1 = p1.name;
             vm.P6.Opcion2 = p2.name;
             vm.P6.Opcion3 = p3.name;
             vm.P6.OpcionRespuesta = p4.name;
             //pregunta 7
-            var p17 = ListaPoke[11];
-            var p27 = ListaPoke[0];
-            var p37 = ListaPoke.FirstOrDefault(x => (x.weight > p1.weight) && (x.weight > p2.weight) && (x.weight > p3.weight));
-            var p47 = ListaPoke[3];
+
+               var minilista2 = ListaPoke.OrderBy(x => x.weight).Take(4).ToList();
+            var p17 = minilista[0];
+            var p27 = minilista[1];
+            var p37 = minilista[3];//correcta
+            var p47 = minilista[2];
+
             vm.P7.Opcion1 = p17.name;
             vm.P7.Opcion2 = p27.name;
             vm.P7.Opcion3 = p47.name;
